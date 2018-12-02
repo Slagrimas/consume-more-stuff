@@ -7,7 +7,11 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev": "npx nodemon server.js",
+    "db:seed": "POSTGRES_HOSTNAME=localhost npx knex seed:run",
+    "db:migrate": "POSTGRES_HOSTNAME=localhost npx knex migrate:latest",
+    "db:rollback": "POSTGRES_HOSTNAME=localhost npx knex migrate:rollback"
   },
   "private": true,
   "dependencies": {
