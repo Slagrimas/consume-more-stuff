@@ -1,10 +1,10 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('items', function (table) {
     table.increments('id');
-    table.integer('category_id').references ('id').inTable('categories').notNullable();
+    table.integer('category_id').references ('id').inTable('catergories').notNullable();
     table.decimal('price').notNullable();
     table.string('description').notNullable();
-    table.string('manufacturer').Nullable();
+    table.string('manufacturer').nullable();
     table.integer('condition_id').references ('id').inTable('conditions').notNullable();
     table.string('dimensions').notNullable();
     table.timestamp('created_at').defaultTo(knex.fn.now());
