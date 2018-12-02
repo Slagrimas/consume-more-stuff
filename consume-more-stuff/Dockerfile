@@ -1,8 +1,9 @@
-# Built from node image
+
+# Built from Node latest Alpine
 FROM node:10.0
 
 # Specify an optional argument with a default value
-ARG app_directory=/app
+ARG app_directory=/src/app
 
 # Set the app directory as the context for all commands and entry to the container
 WORKDIR ${app_directory}
@@ -17,4 +18,4 @@ RUN npm install
 COPY . .
 
 # Start the node application as you normally would
-CMD ["node", "server.js"]
+CMD ["node", "./server/server.js"]
