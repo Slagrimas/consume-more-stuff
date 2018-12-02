@@ -15,10 +15,10 @@ module.exports = {
       password: process.env.POSTGRES_PASSWORD
     },
     migrations: {
-      directory: __dirname + '/server/db/migrations'
+      directory: __dirname + '/db/migrations'
     },
     seeds: {
-      directory: __dirname + 'server/db/seeds'
+      directory: __dirname + '/db/seeds'
     }
   },
 
