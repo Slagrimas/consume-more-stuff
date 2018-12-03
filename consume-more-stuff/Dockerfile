@@ -4,6 +4,7 @@ FROM node:10.0
 
 # Specify an optional argument with a default value
 ARG app_directory=/src/app
+ARG NODE_ENV=development
 
 # Set the app directory as the context for all commands and entry to the container
 WORKDIR ${app_directory}
