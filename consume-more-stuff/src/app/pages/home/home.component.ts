@@ -1,14 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'home-page',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  
+export class HomeComponent {
+  title: string = 'Welcome To Consume More Stuff!'
   constructor() {  }
-
-  ngOnInit() {  }
 
 }
