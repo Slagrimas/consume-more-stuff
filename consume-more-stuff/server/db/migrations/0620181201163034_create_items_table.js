@@ -1,7 +1,7 @@
 exports.up = function(knex, Promise) {
     return knex.schema.createTable('items', function (table) {
     table.increments('id');
-    table.integer('category_id').references ('id').inTable('catergories').notNullable();
+    table.integer('category_id').references ('id').inTable('categories').notNullable();
     table.decimal('price').notNullable();
     table.string('description').notNullable();
     table.string('manufacturer').nullable();
