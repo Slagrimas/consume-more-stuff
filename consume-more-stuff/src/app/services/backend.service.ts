@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 
 @Injectable({
@@ -7,10 +7,18 @@ import { HttpClientModule } from '@angular/common/http';
 })
 
 export class BackendService {
-  baseUrl: string = "https://localhost:8989";
+  baseUrl: string = "https://localhost:4200";
+  users: any[] = [];
 
-    constructor(private http: HttpClientModule) {
+    constructor(private http: HttpClient) {
 
     }
+  
+    getAllUsers() {
+        // console.log('this.allUsers in backend.service called\n', this.allUsers)
+        const url = this.baseUrl + '/users';
+        return this.http.get(url).toPromise();
+      }
+    
 
 } 
