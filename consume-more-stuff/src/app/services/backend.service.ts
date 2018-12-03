@@ -14,11 +14,4 @@ export class BackendService {
 
     }
   
-    getAllUsers() {
-        // console.log('this.allUsers in backend.service called\n', this.allUsers)
-        const url = this.baseUrl + '/users';
-        return this.http.get(url).toPromise();
-      }
-    
-
 } 
