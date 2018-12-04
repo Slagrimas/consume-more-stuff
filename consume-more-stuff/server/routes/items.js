@@ -18,7 +18,6 @@ router.get("/", (req, res) => {
 
 router.post("/", (req, res) => {
   const {
-    //id,
     price,
     description,
     manufacturer,
@@ -30,15 +29,12 @@ router.post("/", (req, res) => {
     title
   } = req.body;
 
-  console.log('items req body', req.body);
 
-  //const parsedId = parseInt(id);
   const parsedCat = parseInt(category_id);
   const parsedCond = parseInt(condition_id);
   const parsedStat = parseInt(status_id);
 
   return new Item({
-    //id: parsedId,
     price,
     description,
     manufacturer,
@@ -51,7 +47,7 @@ router.post("/", (req, res) => {
   })
     .save()
     .then(item => {
-      console.log('items posting', item);
+      //console.log('items posting', item);
       return item.refresh({
         withRelated: ["user_id", "condition_id", "category_id", "itemStatus_id"]
       });
@@ -63,5 +59,24 @@ router.post("/", (req, res) => {
       return res.status(400).json({ message: err.message, code: err.code });
     });
 });
+
+
+router.get('/:id', (req, res) => {
+  const itemId = req.params.id;
+
+  return new Item({ id: itemId })
+    .fetch({ 
+      columns: ['category_id', 'price', 'description', 'manufacturer', 'condition_id', 'dimensions', 'notes', 'status_id', 'title'],
+      withRelated: ['category_id']
+    })
+    .then(item => {
+      if (!item) {
+        res.status(404).json({ message: `Item #${itemId} not found.` });
+      } else {
+        return res.json(item);
+      }
+    })
+    .catch(err => console.err(err));
+})
 
 module.exports = router;
