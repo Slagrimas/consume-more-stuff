@@ -6,7 +6,7 @@ import { BackendService } from "../../services/backend.service";
   styleUrls: ["./item.component.scss"]
 })
 export class ItemComponent implements OnInit {
-    item: Object;
+    item: any = [];
     id: number;
 
     constructor(private backend: BackendService) {
