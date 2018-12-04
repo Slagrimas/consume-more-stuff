@@ -31,7 +31,17 @@ export class BackendService {
         return this.http.get(url).toPromise();
     }
 
-   
+    getAllItems() {
+        // console.log(this.allUsers)
+        const url = this.baseUrl + '/items';
+        return this.http.get(url).toPromise();
+    }
+
+    getItem(id: number) {
+        // console.log(this.users)
+        const url = this.baseUrl + '/items' + id;
+        return this.http.get(url).toPromise();
+    }
 
     login(user) {
         return Promise.resolve({
