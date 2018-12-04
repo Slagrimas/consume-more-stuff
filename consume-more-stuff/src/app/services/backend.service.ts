@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class BackendService {
     baseUrl: string = "https://localhost:4200";
-    contacts: any[] = [];
+    items: any[] = [];
     obj: any;
     id: any;
 
@@ -30,7 +30,7 @@ export class BackendService {
         // console.log('this.allContacts in backend.service called\n', this.allContacts)
         const url = this.baseUrl + '/categories';
         return this.http.get(url).toPromise();
-      }
+    }
 
     getAllItems() {
         // console.log(this.allUsers)
@@ -44,21 +44,19 @@ export class BackendService {
         return this.http.get(url).toPromise();
     }
 
-    createItem(contact) {
-        console.log('contact', contact)
-        this.contacts.push(contact);
-      }
-    
-      //post new contact form
-      createNewItem(obj) {
+    createItem(items) {
+        console.log('items', items)
+        this.items.push(items);
+    }
+
+    createNewItem(obj) {
         const url = this.baseUrl + '/new';
         console.log('createNewContact obj from backend.service', obj)
         return this.http.post(url, obj)
-          .subscribe(res => {
-          console.log('added to DB')
-        });
-      }
-
+            .subscribe(res => {
+                console.log('added to DB')
+            });
+    }
 
     login(user) {
         return Promise.resolve({

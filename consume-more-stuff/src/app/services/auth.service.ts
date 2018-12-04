@@ -22,9 +22,9 @@ export class AuthService {
 
     logout() {
         return this.backend.logout()
-        .then(() => {
-            return this.session.clearSession();
-        })
+            .then(() => {
+                return this.session.clearSession();
+            })
     }
 
     register() {
