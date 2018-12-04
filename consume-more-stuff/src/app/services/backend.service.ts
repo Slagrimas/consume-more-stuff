@@ -17,12 +17,19 @@ export class BackendService {
     ) {
 
     }
-getItems() {
     
-}
+    login(user) {
+        return Promise.resolve({
+            id: 18,
+            username: user.username
+        });
+    }
 
+    logout() {
+        return Promise.resolve({});
+    }
 
-
-
-}
-
+    register() {
+        return Promise.resolve({});
+    }
+} 

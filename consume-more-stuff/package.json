@@ -11,8 +11,13 @@
     "dev": "npx nodemon ./server/server.js & ng serve --host 0.0.0.0",
     "db:seed": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex --knexfile ./server/knexfile.js seed:run",
     "migrate": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex --knexfile ./server/knexfile.js migrate:latest",
+<<<<<<< HEAD
+    "rollback": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex --knexfile ./server/knexfile.js seed:run"
+  }, 
+=======
     "rollback": "POSTGRES_HOSTNAME=localhost POSTGRES_CONTAINER_PORT=5432 npx knex --knexfile ./server/knexfile.js migrate:rollback"
   },
+>>>>>>> routes
   "private": true,
   "dependencies": {
     "@angular/animations": "~7.1.0",
