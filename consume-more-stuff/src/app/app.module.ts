@@ -9,6 +9,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from '../app/component/header/header.component';
 import { ItemComponent } from './pages/item/item.component';
 import { AutoComponent } from './pages/auto/auto.component';
+import { ClothingComponent } from './pages/clothing/clothing.component';
+import { ElectronicComponent } from './pages/electroncis/electronic.component';
 
 
 @NgModule({
@@ -17,7 +19,9 @@ import { AutoComponent } from './pages/auto/auto.component';
     HomeComponent,
     HeaderComponent,
     ItemComponent,
-    AutoComponent
+    AutoComponent,
+    ClothingComponent,
+    ElectronicComponent
   ],
   imports: [
     BrowserModule,
