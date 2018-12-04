@@ -11,6 +11,7 @@ import { ItemComponent } from './pages/item/item.component';
 import { AutoComponent } from './pages/auto/auto.component';
 import { ClothingComponent } from './pages/clothing/clothing.component';
 import { ElectronicComponent } from './pages/electroncis/electronic.component';
+import { GeneralComponent } from './pages/general/general.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ElectronicComponent } from './pages/electroncis/electronic.component';
     ItemComponent,
     AutoComponent,
     ClothingComponent,
-    ElectronicComponent
+    ElectronicComponent,
+    GeneralComponent
   ],
   imports: [
     BrowserModule,
