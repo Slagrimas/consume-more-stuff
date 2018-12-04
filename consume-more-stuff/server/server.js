@@ -47,9 +47,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //     });
 //   })
 
-app.use("/users", usersRouter);
-app.use("/items", itemsRouter);
-app.use("/categories", categoriesRouter);
+app.use("/api/users", usersRouter);
+app.use("/api/items", itemsRouter);
+app.use("/api/categories", categoriesRouter);
 
 app.get("/", (req, res) => {
   console.log("smoke test");

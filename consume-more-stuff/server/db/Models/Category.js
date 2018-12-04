@@ -10,4 +10,4 @@ class Category extends bookshelf.Model {
   }
 }
 
-module.exports = bookshelf.model('Category', Category)
+module.exports = bookshelf.model('Category', Category);
