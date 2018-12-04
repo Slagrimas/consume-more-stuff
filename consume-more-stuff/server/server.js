@@ -15,15 +15,8 @@ const itemsRouter = require('../server/routes/items');
 // const saltRounds = 12;
 // app.use(express.static('public'));
 
-<<<<<<< HEAD
-
 // app.use(bodyParser.urlencoded({ extended: true }))
 
-
-=======
-// app.use(bodyParser.urlencoded({ extended: true }))
-
->>>>>>> 24bfa6f441d4f35be58b30d6a83c880527d1bd45
 // app.use(session({
 //   store: new redis({
 //       url: 'redis://redis-server:6379', logErrors:
@@ -33,16 +26,6 @@ const itemsRouter = require('../server/routes/items');
 //     resave: false,
 //     saveUninitialized: false
 //   }));
-<<<<<<< HEAD
-  
-//   app.use(passport.initialize());
-//   app.use(passport.session());
-  
-//   passport.serializeUser((user, done) => {
-//     done(null, user.id)
-//   });
-  
-=======
 
 //   app.use(passport.initialize());
 //   app.use(passport.session());
@@ -51,7 +34,6 @@ const itemsRouter = require('../server/routes/items');
 //     done(null, user.id)
 //   });
 
->>>>>>> 24bfa6f441d4f35be58b30d6a83c880527d1bd45
 //   passport.deserializeUser((userId, cb) => {
 //     return new User()
 //     .where({ id: userId })
