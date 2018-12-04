@@ -11,7 +11,7 @@ export class ItemComponent implements OnInit {
     item: any
     items: any
     id: any
-
+    
     constructor(private backend: BackendService, private session: SessionServices, ) { }
     ngOnInit() {
 
@@ -23,7 +23,7 @@ export class ItemComponent implements OnInit {
             .catch(err => {
                 console.log(err)
             })
-            
+
         this.backend.getItem(this.id)
             .then(data => {
                 console.log(data)
