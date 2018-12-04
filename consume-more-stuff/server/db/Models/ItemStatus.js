@@ -1,12 +1,13 @@
 const bookshelf = require('./bookshelf');
+require('./Item');
 
 class ItemStatus extends bookshelf.Model {
 
-  get tableName() { return 'itemStatuses' }
+  get tableName() { return 'itemStatus' }
   get hasTimestamps() { return false }
 
   itemStatus_id() {
-    return this.belongsToMany('Item', 'itemStatus_id')
+    return this.hasMany('Item');
   }
 
 }
