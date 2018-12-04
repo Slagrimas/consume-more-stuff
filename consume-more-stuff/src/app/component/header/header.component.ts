@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../../app/services/backend.service'
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
+import { SessionService } from '../../services/session.service'
 
 
 
@@ -16,10 +18,14 @@ search:string;
 filter: Object[]=[];
 isLoggedIn: boolean = true;
 loginPressed:boolean=false;
+username:string;
+password:string;
 
   constructor(
     private backend: BackendService,
-    private router: Router
+    private router: Router,
+    private auth: AuthService,
+    private session: SessionService
   ){}
 
    ngOnInit(){
@@ -30,9 +36,19 @@ loginPressed:boolean=false;
      return this.loginPressed=true;
    }
 
-   userLogin(){
-     return this.backend.login
-   }
+   userLogin(username, password){
+     console.log(this.backend.login())
+     
+       
+     
+      // if (username === response.username && password === response.password){
+      //   return this.auth.login(response)
+      //  } 
+      //  })
+     }
+
+     
+   
 
    itemSearch(){
      if(this.search.toLowerCase)

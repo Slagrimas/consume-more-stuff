@@ -4,9 +4,9 @@
       <h2><a routerLink= "" (click)="userLoginButtonPressed()">User Login</a></h2>
       <form *ngIf="loginPressed">
           <label for="username">Username</label>
-          <input type="text" name="username" id="username">
+          <input type="text"  name="username" id="username" [(ngModel)]="username">
           <label for="password">Password</label>
-          <input type="text" name="password" id="password">
+          <input type="text" name="password" id="password" [(ngModel)]="password">
           <button (click)="userLogin()">Submit</button>
           </form>
     </li>
