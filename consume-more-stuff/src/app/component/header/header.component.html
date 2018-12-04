@@ -1,0 +1,33 @@
+<div>
+  <ul>
+    <li>
+      <h2><a routerLink= "" (click)="userLoginButtonPressed()">User Login</a></h2>
+      <form *ngIf="loginPressed">
+          <label for="username">Username</label>
+          <input type="text" name="username" id="username">
+          <label for="password">Password</label>
+          <input type="text" name="password" id="password">
+          <button (click)="userLogin()">Submit</button>
+          </form>
+    </li>
+    <li>
+      <h2><a *ngIf="!isLoggedIn" routerLink="/register">Register New User</a></h2>
+    </li>
+    <li>
+      <h2><a routerLink="/categories">Categories</a></h2>
+    </li>
+    <li>
+      <form>
+          <label for="search">Search</label>
+          <input type="text" name="search" id="search" (input)="itemSearch()" [(ngModel)]="search">
+          <div *ngFor="let item of items">
+            {{item.name}}
+          </div>
+        </form>
+    </li>
+    <li>
+      <h2><a *ngIf="isLoggedIn" routerLink="">Log Out</a></h2>
+    </li>
+    
+  </ul>
+</div>
