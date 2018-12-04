@@ -8,11 +8,12 @@ import { HttpClient } from '@angular/common/http';
 
 export class BackendService {
     baseUrl: string = "https://localhost:4200";
-    items: any[] = [];
+    items: Object[] = [];
     obj: any;
     id: any;
      
     constructor(private http: HttpClient) { }
+
 
     getAllUsers() {
         // console.log(this.allUsers)

@@ -11,7 +11,11 @@ import { Router } from '@angular/router';
 })
 
 export class HeaderComponent implements OnInit {
-
+item: Object[]=[];
+search:string;
+filter: Object[]=[];
+isLoggedIn: boolean = true;
+loginPressed:boolean=false;
 
   constructor(
     private backend: BackendService,
@@ -22,5 +26,20 @@ export class HeaderComponent implements OnInit {
 
    }
 
+   userLoginButtonPressed(){
+     return this.loginPressed=true;
+   }
+
+   userLogin(){
+     return this.backend.login
+   }
+
+   itemSearch(){
+     if(this.search.toLowerCase)
+     this.filter = this.backend.items.filter((element)=>{
+      console.log(element)
+      //  return element.includes(this.search)
+     })
+   }
 
 }
