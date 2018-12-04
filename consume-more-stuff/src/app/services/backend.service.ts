@@ -13,5 +13,19 @@ export class BackendService {
     constructor(private http: HttpClient) {
 
     }
-  
+    
+    login(user) {
+        return Promise.resolve({
+            id: 18,
+            username: user.username
+        });
+    }
+
+    logout() {
+        return Promise.resolve({});
+    }
+
+    register() {
+        return Promise.resolve({});
+    }
 } 
