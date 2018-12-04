@@ -42,11 +42,11 @@ export class BackendService {
   //   return this.http.get(ItemUrl).toPromise();
   // }
 
-    // getItem(id: number) {
-    //     console.log('Getting Item')
-    //     const ItemUrl = this.baseUrl + '/items' + id
-    //     return this.http.get(ItemUrl).toPromise()
-    //   }
+    getItem(id: number) {
+        console.log('Getting Item')
+        const ItemUrl = this.baseUrl + 'api/items/' + 1
+        return this.http.get(ItemUrl).toPromise()
+      }
     
     createItem(items) {
         console.log('items', items)
