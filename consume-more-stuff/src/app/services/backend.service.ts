@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -7,11 +8,21 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class BackendService {
-  baseUrl: string = "https://localhost:4200";
-  users: any[] = [];
+    baseUrl: string = "https://localhost:4200";
+    users: Object[] = [];
 
-    constructor(private http: HttpClient) {
+    constructor(
+        private http: HttpClient
+
+    ) {
 
     }
-  
-} 
+getItems() {
+    
+}
+
+
+
+
+}
+

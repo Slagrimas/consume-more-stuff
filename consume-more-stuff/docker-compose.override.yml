@@ -7,11 +7,11 @@ services:
     command: ["npm", "run", "dev"]
     container_name: ${IMAGE_NAME}
     volumes:
-      - ".:/app/:rw"
-      - /app/node_modules
+      - ".:/src/app/:rw"
+      - /src/app/node_modules
     env_file: .env
     environment:
-      NODE_ENV: development
+      NODE_ENV: production
     ports:
       - "${EXPRESS_HOST_PORT}:${EXPRESS_CONTAINER_PORT}"
       - "4200:4200"
