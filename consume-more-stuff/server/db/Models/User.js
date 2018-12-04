@@ -1,4 +1,6 @@
 const bookshelf = require("./bookshelf");
+require('./Item');
+require('./UserStatus');
 
 class User extends bookshelf.Model {
   get tableName() {
@@ -9,11 +11,11 @@ class User extends bookshelf.Model {
   }
 
   itemUserId() {
-    return this.hasMany("Item", "user_id");
+    return this.hasMany("Item");
   }
 
   userStatus_id() {
-    return this.hasOne("UserStatus", "userStatus_id");
+    return this.hasOne("UserStatus");
   }
 }
 module.exports = bookshelf.model("User", User);
