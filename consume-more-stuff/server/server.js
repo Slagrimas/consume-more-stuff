@@ -15,7 +15,9 @@ const itemsRouter = require('../server/routes/items');
 // const saltRounds = 12;
 // app.use(express.static('public'));
 
+
 // app.use(bodyParser.urlencoded({ extended: true }))
+
 
 // app.use(session({
 //   store: new redis({
@@ -26,14 +28,14 @@ const itemsRouter = require('../server/routes/items');
 //     resave: false,
 //     saveUninitialized: false
 //   }));
-
+  
 //   app.use(passport.initialize());
 //   app.use(passport.session());
-
+  
 //   passport.serializeUser((user, done) => {
 //     done(null, user.id)
 //   });
-
+  
 //   passport.deserializeUser((userId, cb) => {
 //     return new User()
 //     .where({ id: userId })
