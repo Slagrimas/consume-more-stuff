@@ -7,18 +7,28 @@ import { BackendService } from '../../services/backend.service';
     styleUrls: ['./item.component.scss']
 })
 export class ItemComponent implements OnInit {
-    item: any
+    item: Object;
+    // id: number;
 
     constructor(private backend: BackendService) {
-        this.backend.getItem()
-            .then(data => {
-                console.log('this is data', data)
-                this.item = data
-            })
-            .catch(err => {
-                console.log('this is error', err)
-            })
-    }
+    //     this.backend.getItem(this.id)
+    //         .then((data) => {
+    //             console.log('this is data', data)
+    //             this.item = data
+    //         })
+    //         .catch(err => {
+    //             console.log('this is error', err)
+    //         })
+    // }
+    this.backend.getAllItems()
+    .then((data) => {
+        console.log('this is data', data)
+        this.item = data
+    })
+    .catch(err => {
+        console.log('this is error', err)
+    })
+}
 
     ngOnInit() {
     }
