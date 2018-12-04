@@ -1,17 +1,37 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../services/backend.service';
 import { SessionServices } from '../../services/session.service';
 
 
 @Component({
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.scss']
+    templateUrl: './item.component.html',
+    styleUrls: ['./item.component.scss']
 })
-export class ItemComponent {
+export class ItemComponent implements OnInit {
+    item: any
+    items: any
+    id: any
 
+    constructor(private backend: BackendService, private session: SessionServices, ) { }
+    ngOnInit() {
 
-  constructor( private backend: BackendService, private session: SessionServices,) {  
-        
+        this.backend.getAllItems()
+            .then(data => {
+                // console.log(data)
+                this.items = data
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            
+        this.backend.getItem(this.id)
+            .then(data => {
+                console.log(data)
+                this.item = data
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
-  
+
 }

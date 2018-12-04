@@ -8,12 +8,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class BackendService {
     baseUrl: string = "https://localhost:4200";
-    items: Object[] = [];
+    item: any[] = [];
     obj: any;
     id: any;
      
     constructor(private http: HttpClient) { }
-
 
     getAllUsers() {
         // console.log(this.allUsers)
@@ -47,7 +46,7 @@ export class BackendService {
 
     createItem(items) {
         console.log('items', items)
-        this.items.push(items);
+        this.item.push(items);
     }
 
     createNewItem(obj) {
