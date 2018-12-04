@@ -7,11 +7,12 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class BackendService {
-    baseUrl: string = "https://localhost:8989";
+    baseUrl: string = "localhost:8989";
     item: any[] = [];
     items: any
     obj: any;
-    id: any;
+    id: number;
+
     
     constructor(private http: HttpClient) { }
 
@@ -39,12 +40,19 @@ export class BackendService {
         return this.http.get(url).toPromise();
     }
 
-    getItem(id: number) {
-        // console.log(this.users)
-        const url = this.baseUrl + '/items' + id;
-        return this.http.get(url).toPromise();
-    }
+    // getItem() {
+    //     console.log('FIRED!')
+    //     // const url = this.baseUrl + '/items/' + id;
+    //     // return this.http.get(url).toPromise();
+    //     return this.http.get(`${this.baseUrl}/items/${this.id}`).toPromise();
+    // }
 
+    getItem() {
+        console.log('Getting Item')
+        const ItemUrl = this.baseUrl + '/items/' + this.id;
+        return this.http.get(ItemUrl).toPromise()
+      }
+   
     createItem(items) {
         console.log('items', items)
         this.item.push(items);
