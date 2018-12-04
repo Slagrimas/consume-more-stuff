@@ -1,6 +1,10 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.EXPRESS_HOST_PORT || 8989;
+
+const usersRouter = require('../server/routes/users');
+const itemsRouter = require('../server/routes/items');
+
 // const bodyParser = require('body-parser');
 // const session = require('express-session');
 // const passport = require('passport');
@@ -44,12 +48,16 @@ const PORT = process.env.EXPRESS_HOST_PORT || 8989;
 //     });
 //   })
 
-  app.get('/', (req, res)=>{
-    console.log('smoke test')
-    res.send('smoke test')
-  })
+app.use('/users', usersRouter);
+app.use('/items', itemsRouter);
 
-  app.listen(PORT, () => {
-    console.log(`Server listening on PORT ${PORT}`);
-  });
-  module.exports = app;
+app.get('/', (req, res) => {
+  console.log('smoke test');
+  res.send('smoke test');
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on PORT ${PORT}`);
+});
+
+
