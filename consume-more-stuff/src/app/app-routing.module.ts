@@ -9,6 +9,7 @@ import { AutoComponent } from './pages/auto/auto.component';
 import { ClothingComponent } from './pages/clothing/clothing.component';
 import { ElectronicComponent } from './pages/electroncis/electronic.component';
 import { GeneralComponent } from './pages/general/general.component';
+import { ServiceComponent } from './pages/services-cat/service.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'clothing', component: ClothingComponent},
   { path: 'electronics', component: ElectronicComponent},
   { path: 'general', component: GeneralComponent},
+  { path: 'service', component: ServiceComponent},
 
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
