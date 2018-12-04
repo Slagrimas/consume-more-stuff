@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const Item = require("../db/Models/Item");
 
-
 router.get("/", (req, res) => {
   return Item.fetchAll({
     withRelated: ["user_id", "condition_id", "category_id", "itemStatus_id"]
@@ -29,11 +28,13 @@ router.post("/", (req, res) => {
     title
   } = req.body;
 
-
   const parsedCat = parseInt(category_id);
   const parsedCond = parseInt(condition_id);
   const parsedStat = parseInt(status_id);
 
+  if (title.length <= 3 || description.length <= 10) {
+    return res.send(`Please enter valid information`);
+  }
   return new Item({
     price,
     description,
@@ -60,14 +61,23 @@ router.post("/", (req, res) => {
     });
 });
 
-
-router.get('/:id', (req, res) => {
+router.get("/:id", (req, res) => {
   const itemId = req.params.id;
 
   return new Item({ id: itemId })
-    .fetch({ 
-      columns: ['category_id', 'price', 'description', 'manufacturer', 'condition_id', 'dimensions', 'notes', 'status_id', 'title'],
-      withRelated: ['category_id']
+    .fetch({
+      columns: [
+        "category_id",
+        "price",
+        "description",
+        "manufacturer",
+        "condition_id",
+        "dimensions",
+        "notes",
+        "status_id",
+        "title"
+      ],
+      withRelated: ["category_id"]
     })
     .then(item => {
       if (!item) {
@@ -77,6 +87,6 @@ router.get('/:id', (req, res) => {
       }
     })
     .catch(err => console.err(err));
-})
+});
 
 module.exports = router;
