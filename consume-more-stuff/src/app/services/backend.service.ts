@@ -7,16 +7,34 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class BackendService {
-  baseUrl: string = "https://localhost:4200";
-  users: any[] = [];
+    baseUrl: string = "https://localhost:4200";
+    users: Object[] = [];
+    contacts: any[] = [];
+    allUsers: any[] = [];
+    allContacts: any[] = [];
+    newContact: any[] = [];
+    obj: any;
+    id: any;
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient) { }
 
+    getAllUsers() {
+        // console.log(this.allUsers)
+        const url = this.baseUrl + '/users';
+        return this.http.get(url).toPromise();
     }
-    
+
+    getUser(id: number) {
+        // console.log(this.users)
+        const url = this.baseUrl + '/users/' + id;
+        return this.http.get(url).toPromise();
+    }
+
+   
+
     login(user) {
         return Promise.resolve({
-            id: 18,
+            id: user.id,
             username: user.username
         });
     }
