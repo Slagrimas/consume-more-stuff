@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from '../app/component/header/header.component';
 import { ItemComponent } from './pages/item/item.component';
+import { AutoComponent } from './pages/auto/auto.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ItemComponent } from './pages/item/item.component';
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    ItemComponent
+    ItemComponent,
+    AutoComponent
   ],
   imports: [
     BrowserModule,
