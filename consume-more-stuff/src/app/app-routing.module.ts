@@ -14,7 +14,7 @@ import { ServiceComponent } from './pages/services-cat/service.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
-  { path: 'item', component: ItemComponent},
+  { path: 'item/:id', component: ItemComponent},
   { path: 'header', component: HeaderComponent},
   { path: 'auto', component: AutoComponent},
   { path: 'clothing', component: ClothingComponent},
