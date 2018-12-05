@@ -10,6 +10,7 @@ export class HomeComponent implements OnInit {
   content: string = ''
   allItems: any;
   allCategories: any;
+  cards: any;
 
   constructor(private backend: BackendService) {
 
@@ -31,6 +32,7 @@ export class HomeComponent implements OnInit {
       })
 
   }
+
 
   ngOnInit() {
 
