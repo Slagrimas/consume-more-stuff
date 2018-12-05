@@ -38,7 +38,15 @@ router.post("/", (req, res) => {
   status_id = 1;
 
   if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return res.send(`You've entered an invalid email. Please enter the correct format, example: test@email.com`);
+    return res.send(
+      `You've entered an invalid email. Please enter the correct format, example: test@email.com`
+    );
+  } else if (name.length <= 2) {
+    return res.send(`Please enter a valid name of 3 characters or more.`);
+  } else if (password.length <= 5) {
+    return res.send(`Password must be at least 6 characters.`);
+  } else if (username.length <= 3) {
+    return res.send(`Username must be at least 4 characters.`);
   }
 
   return new User({
