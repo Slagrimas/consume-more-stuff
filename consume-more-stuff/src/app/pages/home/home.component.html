@@ -1,5 +1,5 @@
 <!-- {{ allItems | json }} -->
-<!-- {{ allCategories | json }} -->
+{{ allCategories | json }}
 
 <div class="items-container">
     <div *ngFor="let ite of allItems" class="item">
@@ -13,5 +13,4 @@
         published at: {{ite.published_at}}<br>
         last updated at: {{ite.updated_at}}<br>
     </div>
-
 </div>
