@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
 
 @Component({
-  templateUrl: "./item.component.html",
-  styleUrls: ["./item.component.scss"]
+    templateUrl: "./item.component.html",
+    styleUrls: ["./item.component.scss"]
 })
 export class ItemComponent implements OnInit {
     item: any = [];
@@ -20,5 +20,5 @@ export class ItemComponent implements OnInit {
             })
     }
 
-  ngOnInit() {  }
+    ngOnInit() { }
 }
