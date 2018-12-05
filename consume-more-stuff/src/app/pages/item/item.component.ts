@@ -7,12 +7,12 @@ import { BackendService } from "../../services/backend.service";
 })
 export class ItemComponent implements OnInit {
     item: any = [];
-    id: number;
+    id: number
 
     constructor(private backend: BackendService) {
+        
         this.backend.getItem(this.id)
             .then((data) => {
-                console.log('this is data', data)
                 this.item = data
             })
             .catch(err => {

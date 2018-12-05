@@ -34,6 +34,7 @@ export class BackendService {
     getItem(id: number) {
         console.log('Getting Item')
         const ItemUrl = this.baseUrl + 'api/items/' + `?id=${id}`
+        console.log('thisisid', id) 
         return this.http.get(ItemUrl).toPromise()
     }
 
