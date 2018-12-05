@@ -10,6 +10,7 @@ export class BackendService {
     item: any[] = [];
     items: any
     obj: any;
+    id: number;
 
     constructor(private http: HttpClient) { }
 
@@ -51,7 +52,7 @@ export class BackendService {
 
     login(user) {
         return Promise.resolve({
-            id: user.id,
+            id: this.id,
             username: user.username
         });
     }
