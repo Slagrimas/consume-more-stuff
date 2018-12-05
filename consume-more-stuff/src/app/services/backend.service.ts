@@ -21,7 +21,7 @@ export class BackendService {
     }
 
     getAllCategories() {
-        const url = this.baseUrl + "/categories";
+        const url = this.baseUrl + "api/categories";
         return this.http.get(url).toPromise();
     }
 

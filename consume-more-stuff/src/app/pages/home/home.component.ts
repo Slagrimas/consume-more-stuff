@@ -9,7 +9,17 @@ import { BackendService } from "../../services/backend.service";
 export class HomeComponent implements OnInit {
   content: string = ''
   allItems: any;
+  allCategories: any;
+
   constructor(private backend: BackendService) {
+
+    this.backend.getAllCategories()
+      .then((category) => {
+        console.log('this is category', category)
+        this.allCategories = category
+      })
+      .catch(err => { console.log(err) })
+    
 
     this.backend.getAllItems()
       .then((data) => {
