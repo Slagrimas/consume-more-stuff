@@ -37,6 +37,10 @@ router.post("/", (req, res) => {
   let { name, username, email, password, status_id } = req.body;
   status_id = 1;
 
+  if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+    return res.send(`You've entered an invalid email. Please enter the correct format, example: test@email.com`);
+  }
+
   return new User({
     name: name,
     username: username,
