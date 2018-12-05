@@ -3,6 +3,7 @@
 
 <div class="items-container">
     <div *ngFor="let ite of allItems" class="item">
+        <h3> {{ite.category_id.type}} </h3>
         <p class="title">{{ ite.title }}</p>
         description: {{ite.description}}<br>
         dimensions: {{ite.dimensions}}<br>
