@@ -4,6 +4,7 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({
     providedIn: "root"
 })
+
 export class BackendService {
     baseUrl: string = 'http://localhost:4200/'
     item: any[] = [];
@@ -13,22 +14,15 @@ export class BackendService {
     constructor(private http: HttpClient) { }
 
     getUser(id: number) {
-        // console.log(this.users)
+        console.log('this is getting user')
         const url = this.baseUrl + "/users/" + id;
         return this.http.get(url).toPromise();
     }
 
     getAllCategories() {
-        // console.log('this.allContacts in backend.service called\n', this.allContacts)
         const url = this.baseUrl + "/categories";
         return this.http.get(url).toPromise();
     }
-
-    // getAllItems() {
-    //   // console.log(this.allUsers)
-    //   const url = this.baseUrl + "/items";
-    //   return this.http.get(url).toPromise();
-    // }
 
     getAllItems() {
         console.log('getting items')
@@ -36,11 +30,9 @@ export class BackendService {
         return this.http.get(url).toPromise();
     }
 
-
     getItem(id: number) {
         console.log('Getting Item')
         const ItemUrl = this.baseUrl + 'api/items/' + `?id=${id}`
-        //gotta change id to a number to see how it works
         return this.http.get(ItemUrl).toPromise()
     }
 
