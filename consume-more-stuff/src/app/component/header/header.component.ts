@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
 item: Object[]=[];
 search:string;
 filter: Object[]=[];
-isLoggedIn: boolean = true;
+isLoggedIn: boolean = false;
 loginPressed:boolean=false;
 username:string;
 password:string;
@@ -34,31 +34,23 @@ password:string;
      return this.loginPressed=true;
    }
 
-   userLogin(){
-     
+   userLogin(username, password){
      return this.backend.login(this.username, this.password)
      .then((resp)=>{
-       console.log('header',resp)
-       const userData = resp
-     })
-     
-       
-     
-      // if (username === response.username && password === response.password){
-      //   return this.auth.login(response)
-      //  } 
-      //  })
-     }
+       return this.auth.login(resp,this.username, this.password)
+      })
+      .then(()=>{
+        this.isLoggedIn = true;
+        this.username = null;
+        this.password = null;
+        return this.router.navigate(['**'],);
+      })
+    }
 
-     
-   
-
-   itemSearch(){
+   itemSearch(search){
      if(this.search.toLowerCase)
-     this.filter = this.backend.items.filter((element)=>{
-      console.log(element)
-      //  return element.includes(this.search)
-     })
+     
+      console.log(this.search)
    }
 
 }

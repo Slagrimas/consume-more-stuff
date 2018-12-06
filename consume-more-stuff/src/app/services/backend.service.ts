@@ -68,11 +68,8 @@ export class BackendService {
     }
 
     login(username, password) {
-        console.log(username, password)
         const userUrl = this.baseUrl + `api/login/${username}`;
-        console.log('testing')
         return this.http.post(userUrl,'{username:username, password:password}').toPromise()
-    
     }
 
     logout() {
