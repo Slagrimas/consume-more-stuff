@@ -19,6 +19,7 @@ const bodyParser = require("body-parser");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+
 // app.use(session({
 //   store: new redis({
 //       url: 'redis://redis-server:6379', logErrors:
@@ -51,12 +52,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/users", usersRouter);
 app.use("/api/items", itemsRouter);
 app.use("/api/categories", categoriesRouter);
-app.use((req,res,next)=>{
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Credentials: true")
-  next();
-})
 
 
 app.get("/", (req, res) => {
@@ -65,14 +60,14 @@ app.get("/", (req, res) => {
 });
 
 app.post(`/api/login/:username`, (req, res) => {
-  console.log(req.body)
+  console.log('this is server req body',req.body)
   let userUsername = req.params.username;
   let user = req.body;
   console.log('hello', user.username)
-  if (user.username !== userUsername) {
-    console.log('hello2', user.username)
-    res.redirect("/register");
-  }
+  // if (user.username !== userUsername) {
+  //   console.log('hello2', user.username)
+  //    return res.redirect("/register");
+  // }
   return new User()
     .where({ username: userUsername })
     .fetch({
@@ -84,7 +79,7 @@ app.post(`/api/login/:username`, (req, res) => {
         res.status(404).json({ message: `Username or password incorrect` })
       } else {
         const user = data.toJSON();
-        console.log(user)
+        console.log('hello4',user)
         
         res.send(user)
       }

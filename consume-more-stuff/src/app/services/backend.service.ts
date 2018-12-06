@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class BackendService {
-    baseUrl: string = 'http://localhost:8989/'
+    baseUrl: string = 'http://localhost:4200/'
     item: any[] = [];
     items: any
     obj: any;
@@ -70,8 +70,9 @@ export class BackendService {
     login(username, password) {
         console.log(username, password)
         const userUrl = this.baseUrl + `api/login/${username}`;
-        console.log(userUrl)
-        return this.http.post(userUrl,{username:username, password:password}).toPromise()
+        console.log('testing')
+        return this.http.post(userUrl,'{username:username, password:password}').toPromise()
+    
     }
 
     logout() {
