@@ -25,7 +25,7 @@ class Item extends bookshelf.Model {
   }
 
   itemStatus_id() {
-    return this.belongsTo('ItemStatus');
+    return this.belongsTo('ItemStatus', 'status_id');
   }
 }
 
