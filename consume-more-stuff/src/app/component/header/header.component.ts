@@ -33,7 +33,6 @@ loginPressed:boolean=false;
    userLogin(){
      return this.backend.login
    }
-
    itemSearch(){
      if(this.search.toLowerCase)
      this.filter = this.backend.items.filter((element)=>{

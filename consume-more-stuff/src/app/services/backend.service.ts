@@ -10,6 +10,7 @@ export class BackendService {
     item: any[] = [];
     items: any
     obj: any;
+    id: number;
 
     constructor(private http: HttpClient) { }
 
@@ -20,19 +21,50 @@ export class BackendService {
     }
 
     getAllCategories() {
-        const url = this.baseUrl + "/categories";
+        const url = this.baseUrl + "api/categories";
+        return this.http.get(url).toPromise();
+    }
+
+    getAllAuto(){
+        console.log('getting auto')
+        const url = this.baseUrl + 'api/categories/automotive';
+        return this.http.get(url).toPromise();
+    }
+
+    getAllClothing(){
+        console.log('getting clothing')
+        const url = this.baseUrl + 'api/categories/clothing';
+        return this.http.get(url).toPromise();
+    }
+
+    getAllElectronics(){
+        console.log('getting Electronics')
+        const url = this.baseUrl + 'api/categories/electronics';
+        return this.http.get(url).toPromise();
+    }
+
+    getAllGeneral(){
+        console.log('getting General things')
+        const url = this.baseUrl + 'api/categories/general';
+        return this.http.get(url).toPromise();
+    }
+
+    getAllServices(){
+        console.log('getting services')
+        const url = this.baseUrl + 'api/categories/services';
         return this.http.get(url).toPromise();
     }
 
     getAllItems() {
-        console.log('getting items')
-        const url = this.baseUrl + 'items';
+        console.log('getting all items')
+        const url = this.baseUrl + 'api/items';
         return this.http.get(url).toPromise();
     }
 
     getItem(id: number) {
         console.log('Getting Item')
-        const ItemUrl = this.baseUrl + 'api/items/' + `?id=${id}`
+        const ItemUrl = this.baseUrl + 'api/items/' + id
+        console.log('thisisid', id)
         return this.http.get(ItemUrl).toPromise()
     }
 
@@ -51,7 +83,7 @@ export class BackendService {
 
     login(user) {
         return Promise.resolve({
-            id: user.id,
+            id: this.id,
             username: user.username
         });
     }

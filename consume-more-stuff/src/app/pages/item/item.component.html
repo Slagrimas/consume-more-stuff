@@ -1,16 +1,14 @@
-
 <div class="items-container">
-    <div *ngFor="let ite of item" class="item">
-        <p class="title">{{ ite.title }}</p>
-        description: {{ite.description}}<br>
-        dimensions: {{ite.dimensions}}<br>
-        manufacturer: {{ite.manufacturer}}<br>
-        status id: {{ite.status_id}}<br>
-        price: {{ite.price}}<br>
-        notes: {{ite.notes}}<br>
-        published at: {{ite.published_at}}<br>
-        last updated at: {{ite.updated_at}}<br>
+    <div class="item">
+        <p class="title">{{ item.title }}</p>
+        description: {{ item.description }}<br>
+        dimensions: {{ item.dimensions }}<br>
+        manufacturer: {{ item.manufacturer }}<br>
+        status id: {{ item.status_id }}<br>
+        price: {{ item.price }}<br>
+        notes: {{ item.notes }}<br>
+        published at: {{ item.published_at }}<br>
+        last updated at: {{ item.updated_at }}<br>
     </div>
-
 </div>
 

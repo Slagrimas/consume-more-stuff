@@ -1,1 +1,15 @@
-Clothing Page
+<div class="clothing-container">
+        <div class="clothing" *ngFor="let cos of clothes">
+            <p class="title">{{ cos.title }}</p>
+            description: {{ cos.description }}<br>
+            dimensions: {{ cos.dimensions }}<br>
+            manufacturer: {{ cos.manufacturer }}<br>
+            status id: {{ cos.status_id }}<br>
+            price: {{ cos.price }}<br>
+            notes: {{ cos.notes }}<br>
+            published at: {{ cos.published_at }}<br>
+            last updated at: {{ cos.updated_at }}<br>
+        </div>
+    </div>
+    
+    

@@ -1,1 +1,15 @@
-Service Page
+<div class="service-container">
+        <div class="service" *ngFor="let ser of service">
+            <p class="title">{{ ser.title }}</p>
+            description: {{ ser.description }}<br>
+            dimensions: {{ ser.dimensions }}<br>
+            manufacturer: {{ ser.manufacturer }}<br>
+            status id: {{ ser.status_id }}<br>
+            price: {{ ser.price }}<br>
+            notes: {{ ser.notes }}<br>
+            published at: {{ ser.published_at }}<br>
+            last updated at: {{ ser.updated_at }}<br>
+        </div>
+    </div>
+    
+    

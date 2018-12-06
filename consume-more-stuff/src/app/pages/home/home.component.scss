@@ -1,0 +1,19 @@
+.items-container{
+    padding: 15px;
+}
+.item{
+    text-align: center;
+    border: solid black 2px;
+    width: 25%;
+    margin-left: 950px;
+    padding: 10px;
+    border-left: solid black;
+    border-top: solid black; 
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.title{
+    font-size: 25px;
+}
+.cat{
+    font-size: 25px;
+}
