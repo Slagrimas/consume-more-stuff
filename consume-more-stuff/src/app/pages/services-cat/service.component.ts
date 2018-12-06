@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendService } from '../../services/backend.service';
 
 
 @Component({
@@ -6,8 +7,15 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./service.component.scss']
 })
 export class ServiceComponent implements OnInit {
-  
-    constructor( ) { }
+  service: any;
+
+    constructor( private backend: BackendService ) {
+        this.backend.getAllServices()
+        .then((data) => {
+            this.service = data;
+        })
+        .catch((err) => { console.log(err) })
+     }
 
 
     ngOnInit() {  }
