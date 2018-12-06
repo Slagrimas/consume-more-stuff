@@ -51,6 +51,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/users", usersRouter);
 app.use("/api/items", itemsRouter);
 app.use("/api/categories", categoriesRouter);
+app.use((req,res,next)=>{
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Credentials: true")
+  next();
+})
+
 
 app.get("/", (req, res) => {
   console.log("smoke test");
@@ -78,6 +85,7 @@ app.post(`/api/login/:username`, (req, res) => {
       } else {
         const user = data.toJSON();
         console.log(user)
+        
         res.send(user)
       }
     })
