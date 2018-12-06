@@ -1,1 +1,15 @@
-General Page
+<div class="general-container">
+        <div class="general" *ngFor="let gen of general">
+            <p class="title">{{ gen.title }}</p>
+            description: {{ gen.description }}<br>
+            dimensions: {{ gen.dimensions }}<br>
+            manufacturer: {{ gen.manufacturer }}<br>
+            status id: {{ gen.status_id }}<br>
+            price: {{ gen.price }}<br>
+            notes: {{ gen.notes }}<br>
+            published at: {{ gen.published_at }}<br>
+            last updated at: {{ gen.updated_at }}<br>
+        </div>
+    </div>
+    
+    
