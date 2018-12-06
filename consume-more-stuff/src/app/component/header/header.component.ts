@@ -47,10 +47,4 @@ password:string;
       })
     }
 
-   itemSearch(search){
-     if(this.search.toLowerCase)
-     
-      console.log(this.search)
-   }
-
 }
