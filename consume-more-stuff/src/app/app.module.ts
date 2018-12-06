@@ -13,6 +13,7 @@ import { ClothingComponent } from './pages/clothing/clothing.component';
 import { ElectronicComponent } from './pages/electronics/electronic.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ServiceComponent } from './pages/services-cat/service.component';
     ClothingComponent,
     ElectronicComponent,
     GeneralComponent,
-    ServiceComponent
+    ServiceComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
