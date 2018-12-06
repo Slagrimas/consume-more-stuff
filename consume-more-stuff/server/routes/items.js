@@ -48,7 +48,6 @@ router.post("/", (req, res) => {
   })
     .save()
     .then(item => {
-      //console.log('items posting', item);
       return item.refresh({
         withRelated: ["user_id", "condition_id", "category_id", "itemStatus_id"]
       });

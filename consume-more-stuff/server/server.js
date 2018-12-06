@@ -6,6 +6,7 @@ const usersRouter = require("../server/routes/users");
 const itemsRouter = require("../server/routes/items");
 const categoriesRouter = require("../server/routes/categories");
 
+
 const bodyParser = require("body-parser");
 // const session = require('express-session');
 // const passport = require('passport');
@@ -51,10 +52,12 @@ app.use("/api/users", usersRouter);
 app.use("/api/items", itemsRouter);
 app.use("/api/categories", categoriesRouter);
 
-app.get("/", (req, res) => {
-  console.log("smoke test");
-  res.send("smoke test");
-});
+// app.get("/", (req, res) => {
+//   console.log("smoke test");
+//   res.send("smoke test");
+// });
+
+
 
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);

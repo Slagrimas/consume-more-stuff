@@ -11,6 +11,41 @@ router.get("/", (req, res) => {
     .catch(err => console.error(err));
 });
 
+router.get("/home", (req, res) => {
+  return Item.fetchAll({ withRelated: ["category_id"] })
+    .then(items => {
+      const itemsObjs = items.toJSON();
+      let autoArr = [];
+      let clothArr = [];
+      let elecArr = [];
+      let genArr = [];
+      let servArr = [];
+
+      itemsObjs.forEach(element => {
+        const catId = element.category_id;
+
+        if (catId.id === 1 && autoArr.length <= 5) {
+          autoArr.push(element);
+        } else if (catId.id === 2 && clothArr.length <= 5) {
+          clothArr.push(element);
+        } else if (catId.id === 3 && elecArr.length <= 5) {
+          elecArr.push(element);
+        } else if (catId.id === 4 && genArr.length <= 5) {
+          genArr.push(element);
+        } else if (catId.id === 5 && servArr.length <= 5) {
+          servArr.push(element);
+        } else {
+          return "error has occurred";
+        }
+      });
+      return res.send({ autoArr, clothArr, elecArr, genArr, servArr });
+    })
+    .catch(err => {
+      console.error(err);
+      return res.status(400).send(`An error occurred`);
+    });
+});
+
 router.get("/automotive", (req, res) => {
   return Item.fetchAll({ withRelated: ["category_id"] })
     .then(items => {
@@ -26,7 +61,6 @@ router.get("/automotive", (req, res) => {
       return res.status(400).send(`An error has occurred`);
     });
 });
-
 
 router.get("/clothing", (req, res) => {
   return Item.fetchAll({ withRelated: ["category_id"] })
@@ -82,7 +116,7 @@ router.get("/services", (req, res) => {
       const results = items.toJSON();
       const services = results.filter(element => {
         const elemCatId = element.category_id;
-        return elemCatId.id === 4;
+        return elemCatId.id === 5;
       });
       return res.send(services);
     })
@@ -91,7 +125,5 @@ router.get("/services", (req, res) => {
       return res.status(400).send(`An error has occurred`);
     });
 });
-
-
 
 module.exports = router;
