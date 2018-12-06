@@ -12,7 +12,7 @@ router.get("/", (req, res) => {
 });
 
 router.get("/home", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
     .then(items => {
       const itemsObjs = items.toJSON();
       let autoArr = [];
@@ -47,7 +47,7 @@ router.get("/home", (req, res) => {
 });
 
 router.get("/automotive", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "status_id"] })
     .then(items => {
       const results = items.toJSON();
       const automotive = results.filter(element => {
