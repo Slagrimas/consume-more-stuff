@@ -2,13 +2,26 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
-import { LoginComponent } from './pages/login/login.component';
+
 import { HeaderComponent } from '../app/component/header/header.component';
+import { ItemComponent } from './pages/item/item.component';
+import { AutoComponent } from './pages/auto/auto.component';
+import { ClothingComponent } from './pages/clothing/clothing.component';
+import { ElectronicComponent } from './pages/electronics/electronic.component';
+import { GeneralComponent } from './pages/general/general.component';
+import { ServiceComponent } from './pages/services-cat/service.component';
+
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'item/:id', component: ItemComponent},
   { path: 'header', component: HeaderComponent},
-  { path: 'login', component: LoginComponent},
+  { path: 'auto', component: AutoComponent},
+  { path: 'clothing', component: ClothingComponent},
+  { path: 'electronics', component: ElectronicComponent},
+  { path: 'general', component: GeneralComponent},
+  { path: 'service', component: ServiceComponent},
+
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];
 
@@ -16,4 +29,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
 export class AppRoutingModule { }

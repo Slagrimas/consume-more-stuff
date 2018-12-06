@@ -1,26 +1,32 @@
 const bookshelf = require("./bookshelf");
+require('./Condition');
+require('./Category');
+require('./ItemStatus');
+require('./User');
 
 class Item extends bookshelf.Model {
-
-  get tableName() { return 'items' }
-  get hasTimestamps() { return true }
-
-  user_id(){
-    return this.belongsTo('User', 'id')
+  get tableName() {
+    return "items";
+  }
+  get hasTimestamps() {
+    return true;
   }
 
-  condition_id(){
-    return this.hasOne('Condition', 'id')
+  user_id() {
+    return this.belongsTo('User');
   }
 
-  category_id(){
-    return this.hasOne('Categories', 'id')
+  condition_id() {
+    return this.belongsTo('Condition');
   }
 
-  itemStatus_id(){
-    return this.hasOne('ItemStatus', 'id')
+  category_id() {
+    return this.belongsTo('Category');
   }
-  
+
+  itemStatus_id() {
+    return this.belongsTo('ItemStatus');
+  }
 }
 
-module.exports = bookshelf.model('Item', Item);
+module.exports = bookshelf.model("Item", Item);

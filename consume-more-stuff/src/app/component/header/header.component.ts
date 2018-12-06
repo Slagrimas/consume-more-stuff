@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../../app/services/backend.service'
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { SessionService } from '../../services/session.service'
 
 
 
@@ -25,7 +24,6 @@ password:string;
     private backend: BackendService,
     private router: Router,
     private auth: AuthService,
-    private session: SessionService
   ){}
 
    ngOnInit(){
@@ -36,8 +34,12 @@ password:string;
      return this.loginPressed=true;
    }
 
-   userLogin(username, password){
-     console.log(this.backend.login())
+   userLogin(){
+     return this.backend.login(this.username, this.password)
+     .then((resp)=>{
+       console.log(resp)
+       const userData = resp
+     })
      
        
      

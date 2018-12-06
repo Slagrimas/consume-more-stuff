@@ -24,13 +24,17 @@ router.post("/", (req, res) => {
     category_id,
     condition_id,
     notes,
-    status_id
+    status_id,
+    title
   } = req.body;
 
   const parsedCat = parseInt(category_id);
   const parsedCond = parseInt(condition_id);
   const parsedStat = parseInt(status_id);
 
+  if (title.length <= 3 || description.length <= 10) {
+    return res.send(`Please enter valid information`);
+  }
   return new Item({
     price,
     description,
@@ -39,10 +43,12 @@ router.post("/", (req, res) => {
     category_id: parsedCat,
     condition_id: parsedCond,
     status_id: parsedStat,
-    notes
+    notes,
+    title
   })
     .save()
     .then(item => {
+      //console.log('items posting', item);
       return item.refresh({
         withRelated: ["user_id", "condition_id", "category_id", "itemStatus_id"]
       });
@@ -53,6 +59,34 @@ router.post("/", (req, res) => {
     .catch(err => {
       return res.status(400).json({ message: err.message, code: err.code });
     });
+});
+
+router.get("/:id", (req, res) => {
+  const itemId = req.params.id;
+
+  return new Item({ id: itemId })
+    .fetch({
+      columns: [
+        "category_id",
+        "price",
+        "description",
+        "manufacturer",
+        "condition_id",
+        "dimensions",
+        "notes",
+        "status_id",
+        "title"
+      ],
+      withRelated: ["category_id"]
+    })
+    .then(item => {
+      if (!item) {
+        res.status(404).json({ message: `Item #${itemId} not found.` });
+      } else {
+        return res.json(item);
+      }
+    })
+    .catch(err => console.err(err));
 });
 
 module.exports = router;

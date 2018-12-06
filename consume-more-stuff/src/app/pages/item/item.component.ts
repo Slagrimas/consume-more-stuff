@@ -1,0 +1,24 @@
+import { Component, OnInit } from "@angular/core";
+import { BackendService } from "../../services/backend.service";
+
+@Component({
+    templateUrl: "./item.component.html",
+    styleUrls: ["./item.component.scss"]
+})
+export class ItemComponent implements OnInit {
+    item: any = [];
+    id: number
+
+    constructor(private backend: BackendService) {
+        
+        this.backend.getItem(this.id)
+            .then((data) => {
+                this.item = data
+            })
+            .catch(err => {
+                console.log('this is error', err)
+            })
+    }
+
+    ngOnInit() { }
+}
