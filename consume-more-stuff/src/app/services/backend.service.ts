@@ -33,7 +33,7 @@ export class BackendService {
     //can talk to database
     getItem(id: number) {
         console.log('Getting Item')
-        const ItemUrl = this.baseUrl + 'api/items/' + `?id=${id}`
+        const ItemUrl = this.baseUrl + 'api/items/' + id
         console.log('thisisid', id) 
         return this.http.get(ItemUrl).toPromise()
     }

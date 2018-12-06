@@ -1,5 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { BackendService } from "../../services/backend.service";
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
     templateUrl: "./item.component.html",
@@ -7,11 +9,10 @@ import { BackendService } from "../../services/backend.service";
 })
 export class ItemComponent implements OnInit {
     item: any = [];
-    id: number
+    constructor(private backend: BackendService, private route: ActivatedRoute) {
+     const id = this.route.params.subscribe( params => console.log('thisisaconsolelog', params) )
 
-    constructor(private backend: BackendService) {
-        
-        this.backend.getItem(this.id)
+        this.backend.getItem(id)
             .then((data) => {
                 this.item = data
             })
