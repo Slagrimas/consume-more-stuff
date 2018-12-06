@@ -21,7 +21,6 @@ router.get("/home", (req, res) => {
       let genArr = [];
       let servArr = [];
 
-      console.log("itemzzy", itemsObjs);
       itemsObjs.forEach(element => {
         const catId = element.category_id;
 
@@ -117,7 +116,7 @@ router.get("/services", (req, res) => {
       const results = items.toJSON();
       const services = results.filter(element => {
         const elemCatId = element.category_id;
-        return elemCatId.id === 4;
+        return elemCatId.id === 5;
       });
       return res.send(services);
     })
