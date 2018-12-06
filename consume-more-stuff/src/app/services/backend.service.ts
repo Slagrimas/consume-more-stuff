@@ -43,7 +43,7 @@ export class BackendService {
 
     getAllAuto(){
         console.log('getting auto')
-        const url = this.baseUrl + 'api/categories/automotive';
+        const url = this.baseUrl + 'api/categories/automotiv';
         return this.http.get(url).toPromise();
     }
 
