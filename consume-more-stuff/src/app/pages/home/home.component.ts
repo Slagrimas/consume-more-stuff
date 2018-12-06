@@ -8,7 +8,7 @@ import { BackendService } from "../../services/backend.service";
 
 export class HomeComponent implements OnInit {
   content: string = ''
-  allItems: any;
+  home: object;
   allCategories: any;
   cards: any;
 
@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
     this.backend.getAllHomeItems()
       .then((data) => {
         console.log('this is data', data)
-        this.allItems = data
+        this.home = data
       })
       .catch(err => {
         console.log('this is error', err)

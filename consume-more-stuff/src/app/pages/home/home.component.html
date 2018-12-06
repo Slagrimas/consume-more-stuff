@@ -1,18 +1,33 @@
+<div class="items-container">
+    <div *ngFor="let aut of home.autoArr" class="item">
+        <p class="title">{{ aut.title }}</p>
+        <p class="cat">Category: {{ aut.category_id.type }}</p> <br>
+        description: {{aut.description}}<br>
+        dimensions: {{aut.dimensions}}<br>
+        category: {{ aut.category_id.type }}<br>
+        manufacturer: {{aut.manufacturer}}<br>
+        status id: {{aut.status_id}}<br>
+        price: {{aut.price}}<br>
+        notes: {{aut.notes}}<br>
+        published at: {{aut.published_at}}<br>
+        last updated at: {{aut.updated_at}}<br>
+    </div>
+</div>
 
-<!-- <div class="items-container">
-    <div class="item">
-                <p class="title">{{ allItems.title }}</p>
-               <p class="cat">Category: {{ allItems.category_id.type }}</p> <br>
-                description: {{allItems.description}}<br>
-                dimensions: {{allItems.dimensions}}<br>
-                category: {{ allItems.category_id.type }}<br>
-                manufacturer: {{allItems.manufacturer}}<br>
-                status id: {{allItems.status_id}}<br>
-                price: {{allItems.price}}<br>
-                notes: {{allItems.notes}}<br>
-                published at: {{allItems.published_at}}<br>
-                last updated at: {{allItems.updated_at}}<br>
-            </div>
-</div> -->
+<div class="items-container">
+    <div *ngFor="let clo of home.clothArr" class="item">
+        <p class="title">{{ clo.title }}</p>
+        <p class="cat">Category: {{ clo.category_id.type }}</p> <br>
+        description: {{clo.description}}<br>
+        dimensions: {{clo.dimensions}}<br>
+        category: {{ clo.category_id.type }}<br>
+        manufacturer: {{clo.manufacturer}}<br>
+        status id: {{clo.status_id}}<br>
+        price: {{clo.price}}<br>
+        notes: {{clo.notes}}<br>
+        published at: {{clo.published_at}}<br>
+        last updated at: {{clo.updated_at}}<br>
+    </div>
+</div>
 
-{{ allItems | json }}
+<!-- {{ allItems | json }} -->
