@@ -10,6 +10,7 @@ router.get("/", (req, res) => {
     .catch(err => console.error(err));
 });
 
+
 router.get("/:id", (req, res) => {
   const userId = req.params.id;
 
@@ -65,5 +66,6 @@ router.post("/", (req, res) => {
       return res.status(400).json({ message: err.message, code: err.code });
     });
 });
+
 
 module.exports = router;
