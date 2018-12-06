@@ -6,17 +6,18 @@ import { BackendService } from '../../services/backend.service'
     styleUrls: ['./electronic.component.scss']
 })
 export class ElectronicComponent implements OnInit {
-  electro: any
+    electro: any
 
-    constructor(private backend: BackendService ) { 
+    constructor(private backend: BackendService) {
         this.backend.getAllElectronics()
-        .then((data) => {
-            this.electro = data
-        })
-        .catch((err) => { console.log(err) })
+            .then((data) => {
+                this.electro = data
+            })
+            .catch((err) => { console.log(err) });
+
     }
 
 
-    ngOnInit() {  }
+    ngOnInit() { }
 
 }

@@ -7,19 +7,19 @@ import { BackendService } from "../../services/backend.service";
     styleUrls: ['./clothing.component.scss']
 })
 export class ClothingComponent implements OnInit {
-  clothes: any; 
+    clothes: any;
 
-    constructor(private backend: BackendService ) { 
+    constructor(private backend: BackendService) {
         this.backend.getAllClothing()
-        .then((data) => {
-            this.clothes = data;
-        })
-        .catch((err) => {
-            console.log('this is a error', err)
-        })
+            .then((data) => {
+                this.clothes = data;
+            })
+            .catch((err) => {
+                console.log('this is a error', err)
+            })
     }
 
 
-    ngOnInit() {  }
+    ngOnInit() { }
 
 }
