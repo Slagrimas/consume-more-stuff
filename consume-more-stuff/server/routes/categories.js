@@ -47,7 +47,7 @@ router.get("/home", (req, res) => {
 });
 
 router.get("/automotive", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "status_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
     .then(items => {
       const results = items.toJSON();
       const automotive = results.filter(element => {
@@ -63,7 +63,7 @@ router.get("/automotive", (req, res) => {
 });
 
 router.get("/clothing", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
     .then(items => {
       const results = items.toJSON();
       const clothing = results.filter(element => {
@@ -79,7 +79,7 @@ router.get("/clothing", (req, res) => {
 });
 
 router.get("/electronics", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
     .then(items => {
       const results = items.toJSON();
       const electronics = results.filter(element => {
@@ -95,7 +95,7 @@ router.get("/electronics", (req, res) => {
 });
 
 router.get("/general", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
     .then(items => {
       const results = items.toJSON();
       const general = results.filter(element => {
@@ -111,7 +111,7 @@ router.get("/general", (req, res) => {
 });
 
 router.get("/services", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id"] })
+  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
     .then(items => {
       const results = items.toJSON();
       const services = results.filter(element => {
