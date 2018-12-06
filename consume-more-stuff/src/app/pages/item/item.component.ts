@@ -9,8 +9,10 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ItemComponent implements OnInit {
     item: any = [];
+    
     constructor(private backend: BackendService, private route: ActivatedRoute) {
-     const id = this.route.params.subscribe( params => console.log('thisisaconsolelog', params) )
+        console.log(this.route.snapshot.params['id'])
+        const id = this.route.snapshot.params['id']
 
         this.backend.getItem(id)
             .then((data) => {
