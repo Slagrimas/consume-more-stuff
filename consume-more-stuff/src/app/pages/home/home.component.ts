@@ -14,15 +14,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private backend: BackendService) {
 
-    this.backend.getAllCategories()
-      .then((category) => {
-        console.log('this is category', category)
-        this.allCategories = category
-      })
-      .catch(err => { console.log(err) })
-
-
-    this.backend.getAllItems()
+    this.backend.getAllHomeItems()
       .then((data) => {
         console.log('this is data', data)
         this.allItems = data

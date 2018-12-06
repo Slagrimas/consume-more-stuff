@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="items-container">
     <div *ngFor="let ite of allItems" class="item">
                 <p class="title">{{ ite.title }}</p>
@@ -12,4 +12,6 @@
                 published at: {{ite.published_at}}<br>
                 last updated at: {{ite.updated_at}}<br>
             </div>
-</div>
+</div> -->
+
+{{ allItems | json }}

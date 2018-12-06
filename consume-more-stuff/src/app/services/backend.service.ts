@@ -84,6 +84,12 @@ export class BackendService {
         return this.http.get(ItemUrl).toPromise()
     }
 
+    getAllHomeItems() {
+        console.log('getting all home items')
+        const url = this.baseUrl + 'api/categories/home'
+        return this.http.get(url).toPromise()
+    }
+
     createItem(items) {
         console.log('items', items)
         this.item.push(items);
