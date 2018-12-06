@@ -1,9 +1,8 @@
 
 <div class="items-container">
-    <h3 class="type" *ngFor="let it of allItems"> {{it.category_id.type}}
-        <div *ngFor="let ite of allItems" class="item">
-            <!-- <div *ngIf="filterByType()"> -->
+    <div *ngFor="let ite of allItems" class="item">
                 <p class="title">{{ ite.title }}</p>
+               <p class="cat">Category: {{ ite.category_id.type }}</p> <br>
                 description: {{ite.description}}<br>
                 dimensions: {{ite.dimensions}}<br>
                 manufacturer: {{ite.manufacturer}}<br>
@@ -13,6 +12,4 @@
                 published at: {{ite.published_at}}<br>
                 last updated at: {{ite.updated_at}}<br>
             </div>
-        <!-- </div> -->
-    </h3>
 </div>

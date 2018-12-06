@@ -20,7 +20,7 @@ export class HomeComponent implements OnInit {
         this.allCategories = category
       })
       .catch(err => { console.log(err) })
-    
+
 
     this.backend.getAllItems()
       .then((data) => {
