@@ -31,6 +31,12 @@ export class BackendService {
         return this.http.get(url).toPromise();
     }
 
+    getAllClothing(){
+        console.log('getting clothing')
+        const url = this.baseUrl + 'api/categories/clothing';
+        return this.http.get(url).toPromise();
+    }
+
     getAllItems() {
         console.log('getting all items')
         const url = this.baseUrl + 'api/items';
