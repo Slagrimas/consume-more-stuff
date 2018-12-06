@@ -6,7 +6,7 @@ import { HttpClient } from "@angular/common/http";
 })
 
 export class BackendService {
-    baseUrl: string = 'http://localhost:8989/'
+    baseUrl: string = 'http://localhost:4200/'
     item: any[] = [];
     items: any
     obj: any;
