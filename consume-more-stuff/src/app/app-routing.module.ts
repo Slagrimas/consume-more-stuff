@@ -10,10 +10,12 @@ import { ClothingComponent } from './pages/clothing/clothing.component';
 import { ElectronicComponent } from './pages/electronics/electronic.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
+import { AllItemComponent } from './pages/allItems/allitems.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
+  { path: 'items', component: AllItemComponent},
   { path: 'item/:id', component: ItemComponent},
   { path: 'header', component: HeaderComponent},
   { path: 'auto', component: AutoComponent},

@@ -14,6 +14,7 @@ import { ElectronicComponent } from './pages/electronics/electronic.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { AllItemComponent } from './pages/allItems/allitems.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { DashboardComponent } from './component/dashboard/dashboard.component';
     ElectronicComponent,
     GeneralComponent,
     ServiceComponent,
-    DashboardComponent
+    DashboardComponent,
+    AllItemComponent
   ],
   imports: [
     BrowserModule,
