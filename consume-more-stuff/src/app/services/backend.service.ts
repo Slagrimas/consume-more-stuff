@@ -24,20 +24,20 @@ export class BackendService {
         const url = this.baseUrl + "api/categories";
         return this.http.get(url).toPromise();
     }
-    //can talk to database
+
     getAllItems() {
         console.log('getting all items')
         const url = this.baseUrl + 'api/items';
         return this.http.get(url).toPromise();
     }
-    //can talk to database
+
     getItem(id: number) {
         console.log('Getting Item')
         const ItemUrl = this.baseUrl + 'api/items/' + id
-        console.log('thisisid', id) 
+        console.log('thisisid', id)
         return this.http.get(ItemUrl).toPromise()
     }
-                                   
+
     createItem(items) {
         console.log('items', items)
         this.item.push(items);
