@@ -1,16 +1,16 @@
 <div class="clothing-container">
-        <div class="clothing" *ngFor="let cos of clothes">
-            <p class="title">{{ cos.title }}</p>
-            description: {{ cos.description }}<br>
-            dimensions: {{ cos.dimensions }}<br>
-            category: {{ cos.category_id.type }}<br>
-            status: {{cos.itemStatus_id.name}}<br>
-            manufacturer: {{ cos.manufacturer }}<br>
-            status id: {{ cos.status_id }}<br>
-            price: {{ cos.price }}<br>
-            notes: {{ cos.notes }}<br>
-            published at: {{ cos.published_at }}<br>
-            last updated at: {{ cos.updated_at }}<br>
+        <div class="clothing" *ngFor="let item of clothes">
+            <p class="title">{{ item.title }}</p>
+            description: {{ item.description }}<br>
+            dimensions: {{ item.dimensions }}<br>
+            category: {{ item.category_id.type }}<br>
+            status: {{item.itemStatus_id.name}}<br>
+            manufacturer: {{ item.manufacturer }}<br>
+            status id: {{ item.status_id }}<br>
+            price: {{ item.price }}<br>
+            notes: {{ item.notes }}<br>
+            published at: {{ item.published_at }}<br>
+            last updated at: {{ item.updated_at }}<br>
         </div>
     </div>
     
