@@ -17,7 +17,6 @@ import { AllItemComponent } from './pages/allItems/allitems.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HeaderComponent } from './component/header/header.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

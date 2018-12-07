@@ -1,16 +1,23 @@
-THIS IS ALL ITEMS
-<div class="items-container">
-    <div *ngFor="let ite of items" class="item">
-                <p class="title">{{ ite.title }}</p>
-               <p class="cat">Category: {{ ite.category_id.type }}</p> <br>
-                description: {{ite.description}}<br>
-                dimensions: {{ite.dimensions}}<br>
-                category: {{ ite.category_id.type }}<br>
-                manufacturer: {{ite.manufacturer}}<br>
-                status: {{ite.itemStatus_id.name}}<br>
-                price: {{ite.price}}<br>
-                notes: {{ite.notes}}<br>
-                published at: {{ite.published_at}}<br>
-                last updated at: {{ite.updated_at}}<br>
-            </div>
+<div class="all">
+    <div class="items-container" style="border-top: solid black;">
+        <h3> All Items </h3>
+        <div *ngFor="let ite of items" class="item" style=" border: solid black;
+        width: 25%;
+        padding: 5px;
+        display: inline-block;
+        margin: 10px;">
+            <p class="title">{{ ite.title }}</p>
+            <p class="cat">Category: {{ ite.category_id.type }}</p> <br>
+            description: {{ite.description}}<br>
+            dimensions: {{ite.dimensions}}<br>
+            category: {{ ite.category_id.type }}<br>
+            manufacturer: {{ite.manufacturer}}<br>
+            status: {{ite.itemStatus_id.name}}<br>
+            price: {{ite.price}}<br>
+            notes: {{ite.notes}}<br>
+            published at: {{ite.published_at}}<br>
+            last updated at: {{ite.updated_at}}<br>
+        </div>
+    </div>
 </div>
+    

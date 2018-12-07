@@ -9,22 +9,19 @@
           <button (click)="userLogin()">Submit</button>
           </form>
         </div>
+        <div class="search">
+        <form>
+            <label for="search">Search</label>
+            <input type="text" name="search" id="search" (input)="itemSearch()" [(ngModel)]="search">
+            <div *ngFor="let item of items">
+              {{item.name}}
+            </div>
+          </form>
+        </div>
 <div class="register">
       <h2><a *ngIf="!isLoggedIn" routerLink="/register">Register New User</a></h2>
     </div>
-<div class="categories">
-      <h2><a routerLink="/categories">Categories</a></h2>
-    </div>
       
-      <div class="search">
-      <form>
-          <label for="search">Search</label>
-          <input type="text" name="search" id="search" (input)="itemSearch()" [(ngModel)]="search">
-          <div *ngFor="let item of items">
-            {{item.name}}
-          </div>
-        </form>
-      </div>
       <div class="logout">
       <h2><a *ngIf="isLoggedIn" (click)="logout()">Log Out</a></h2>
     </div>
