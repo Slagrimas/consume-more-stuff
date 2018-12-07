@@ -18,9 +18,11 @@ export class ItemComponent implements OnInit {
       .then(data => {
         this.item = data;
       })
-      .catch(err => {
-        console.log("this is error", err);
-      });
+      .catch((err) => {
+        alert('error has occured')
+        window.location.href = '/error'
+         console.log('failure', err)
+     })
   }
 
   ngOnInit() {}

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from "../../services/backend.service";
-import { runInThisContext } from 'vm';
+import { Router } from '@angular/router';
 
 @Component({
     templateUrl: './auto.component.html',
@@ -9,21 +9,20 @@ import { runInThisContext } from 'vm';
 
 export class AutoComponent implements OnInit {
     result: any;
-    error: string = "An Error Has Occured"
+    error: string = "An Error Has Occured";
 
-    constructor(private backend: BackendService) {
+    constructor(private backend: BackendService, private router: Router) {
         this.backend.getAllAuto()
             .then((data) => {
                 this.result = data;
+                console.log('succesful')
             })
-            .catch(() => {
-                this.errorHandler
+            .catch((err) => {
+               alert('error has occured')
+               window.location.href = '/error'
+                console.log('failure', err)
             })
     }
-
-errorHandler() {
-    return 'An Error Has Occured'
-}
 
     ngOnInit() { }
 

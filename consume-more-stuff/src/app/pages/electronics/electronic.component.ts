@@ -13,8 +13,11 @@ export class ElectronicComponent implements OnInit {
             .then((data) => {
                 this.electro = data
             })
-            .catch((err) => { console.log(err) });
-
+            .catch((err) => {
+                alert('error has occured')
+                window.location.href = '/error'
+                 console.log('failure', err)
+             })
     }
 
 
