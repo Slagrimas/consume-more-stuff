@@ -15,7 +15,9 @@ export class AllItemComponent implements OnInit {
         this.items = data;
       })
       .catch(err => {
-        console.log("this is a error", err);
+        alert("error has occured");
+        window.location.href = "/error";
+        console.log("failure", err);
       });
   }
 

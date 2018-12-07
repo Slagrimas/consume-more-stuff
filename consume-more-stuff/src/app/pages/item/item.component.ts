@@ -10,7 +10,6 @@ export class ItemComponent implements OnInit {
   item: any = [];
 
   constructor(private backend: BackendService, private route: ActivatedRoute) {
-    console.log(this.route.snapshot.params["id"]);
     const id = this.route.snapshot.params["id"];
 
     this.backend
@@ -18,9 +17,11 @@ export class ItemComponent implements OnInit {
       .then(data => {
         this.item = data;
       })
-      .catch(err => {
-        console.log("this is error", err);
-      });
+      .catch((err) => {
+        alert('error has occured')
+        window.location.href = '/error'
+         console.log('failure', err)
+     })
   }
 
   ngOnInit() {}

@@ -13,7 +13,11 @@ export class GeneralComponent implements OnInit {
        .then((data) => {
            this.general = data;
        })
-       .catch((err) => { console.log('this is a error message ', err)})
+       .catch((err) => {
+        alert('error has occured')
+        window.location.href = '/error'
+         console.log('failure', err)
+     })
     }
 
 

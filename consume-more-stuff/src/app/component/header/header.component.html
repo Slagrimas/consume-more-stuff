@@ -1,6 +1,5 @@
 <div class="header">
-  <ul class="header">
-    <li>
+  <div class="login">
       <h2><a routerLink= "" (click)="userLoginButtonPressed()">User Login</a></h2>
       <form *ngIf="loginPressed">
           <label for="username">Username</label>
@@ -9,14 +8,15 @@
           <input type="text" name="password" id="password" [(ngModel)]="password">
           <button (click)="userLogin()">Submit</button>
           </form>
-    </li>
-    <li>
+        </div>
+<div class="register">
       <h2><a *ngIf="!isLoggedIn" routerLink="/register">Register New User</a></h2>
-    </li>
-    <li>
+    </div>
+<div class="categories">
       <h2><a routerLink="/categories">Categories</a></h2>
-    </li>
-    <li>
+    </div>
+      
+      <div class="search">
       <form>
           <label for="search">Search</label>
           <input type="text" name="search" id="search" (input)="itemSearch()" [(ngModel)]="search">
@@ -24,9 +24,8 @@
             {{item.name}}
           </div>
         </form>
-    </li>
-    <li>
-      <h2><a *ngIf="isLoggedIn" routerLink="">Log Out</a></h2>
-    </li>
-  </ul>
+      </div>
+      <div class="logout">
+      <h2><a *ngIf="isLoggedIn" (click)="logout()">Log Out</a></h2>
+    </div>
 </div>

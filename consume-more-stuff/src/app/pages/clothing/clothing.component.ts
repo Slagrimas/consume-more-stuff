@@ -15,8 +15,10 @@ export class ClothingComponent implements OnInit {
                 this.clothes = data;
             })
             .catch((err) => {
-                console.log('this is a error', err)
-            })
+                alert('error has occured')
+                window.location.href = '/error'
+                 console.log('failure', err)
+             })
     }
 
 

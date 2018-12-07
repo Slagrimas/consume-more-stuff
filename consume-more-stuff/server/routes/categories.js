@@ -39,9 +39,7 @@ router.get("/home", (req, res) => {
         } else if (catId.id === 5 && servArr.length <= 5) {
           servArr.push(element);
         } else {
-          return res
-            .status(500)
-            .json({ status: ERROR, message: "Unable to obtain data" });
+          return res.status(500).json({ status: ERROR, message: 'Unable to obtain data' });
         }
       });
       return res.send({ autoArr, clothArr, elecArr, genArr, servArr });

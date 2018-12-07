@@ -1,17 +1,15 @@
 <div class="auto-container">
-        <div class="auto" *ngFor="let res of result">
-            <p class="title">{{ res.title }}</p>
-            description: {{ res.description }}<br>
-            category: {{ res.category_id.type }}<br>
-            status: {{res.itemStatus_id.name}}<br>
-            dimensions: {{ res.dimensions }}<br>
-            manufacturer: {{ res.manufacturer }}<br>
-            status id: {{ res.status_id }}<br>
-            price: {{ res.price }}<br>
-            notes: {{ res.notes }}<br>
-            published at: {{ res.published_at }}<br>
-            last updated at: {{ res.updated_at }}<br>
-        </div>
+    <div class="auto" *ngFor="let res of result">
+        <p class="title">{{ res.title }}</p>
+        description: {{ res.description }}<br>
+        category: {{ res.category_id.type }}<br>
+        status: {{res.itemStatus_id.name}}<br>
+        dimensions: {{ res.dimensions }}<br>
+        manufacturer: {{ res.manufacturer }}<br>
+        status id: {{ res.status_id }}<br>
+        price: {{ res.price }}<br>
+        notes: {{ res.notes }}<br>
+        published at: {{ res.published_at }}<br>
+        last updated at: {{ res.updated_at }}<br>
     </div>
-    
-    
+</div>

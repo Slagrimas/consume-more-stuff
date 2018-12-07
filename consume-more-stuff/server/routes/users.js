@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
     });
 });
 
-
 router.get("/:id", (req, res) => {
   const userId = req.params.id;
 
@@ -53,20 +52,19 @@ router.post("/", (req, res) => {
   }
 
   return new User({
-    name: name,
-    username: username,
-    email: email,
-    password: password,
-    status_id: status_id
+    name,
+    username,
+    email,
+    password,
+    status_id
   })
     .save()
     .then(user => {
       return res.json(user);
     })
     .catch(err => {
-      return res.status(400).json({ message: err.message, code: err.code });
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
-
 
 module.exports = router;
