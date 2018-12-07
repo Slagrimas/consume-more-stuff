@@ -11,27 +11,26 @@ export class BackendService {
     items: any
     obj: any;
     id: number;
- user:{
-     id:number,
-     username:string,
-    password: string,
-    name:string,
-    email:string,
-    user_status:number,
-    item_id: null
+    user: {
+        id: number,
+        username: string,
+        password: string,
+        name: string,
+        email: string,
+        user_status: number,
+        item_id: null
     } = {
-     id:null,
-     username:'',
-     password:'',
-     name:'',
-     email:'',
-     user_status:null,
-     item_id: null,
-    };
+            id: null,
+            username: '',
+            password: '',
+            name: '',
+            email: '',
+            user_status: null,
+            item_id: null,
+        };
     constructor(private http: HttpClient) { }
 
     getUser(id: number) {
-        console.log('this is getting user')
         const url = this.baseUrl + "/users/" + id;
         return this.http.get(url).toPromise();
     }
@@ -92,8 +91,8 @@ export class BackendService {
     }
 
     login(username, password) {
-        const userUrl = this.baseUrl + `api/login/${username}`;
-        return this.http.post(userUrl,{username:username, password:password}).toPromise()
+        const userUrl = this.baseUrl + `api/login`;
+        return this.http.post(userUrl, {username:username, password:password}).toPromise()
     }
 
     logout() {
@@ -102,5 +101,11 @@ export class BackendService {
 
     register() {
         return Promise.resolve({});
+    }
+
+    searchForItem(param) {
+        const itemFetch = this.baseUrl + `api/item/${param}`;
+        return this.http.post(itemFetch, '{title:title}').toPromise
+
     }
 }

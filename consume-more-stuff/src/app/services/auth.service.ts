@@ -9,11 +9,15 @@ export class AuthService {
 
     constructor(
         private backend: BackendService,
-        private session: SessionService
+        private session: SessionService,
     ) { }
 
-    login(user) {
-                return this.session.setSession(user);
+    login(data, username,password) {
+        if (data.username === username && data.password === password){
+             return this.session.setSession(data.username)
+        }else{
+            return `Username and/or password, incorrect.`
+        }
     }
 
     logout() {

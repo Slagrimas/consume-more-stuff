@@ -28,9 +28,7 @@ export class SessionService {
         this.user.id = user.id;
         this.user.username = user.username;
         this.user.isLoggedIn = true;
-
         localStorage.setItem('user', JSON.stringify(this.user))
-        return this.user.isLoggedIn;
     }
 
     clearSession() {

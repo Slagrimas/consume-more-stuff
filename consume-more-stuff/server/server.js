@@ -17,8 +17,9 @@ const bodyParser = require("body-parser");
 
 // const saltRounds = 12;
 // app.use(express.static('public'));
-
+app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({ extended: true }));
+
 
 // app.use(session({
 //   store: new redis({
@@ -52,43 +53,28 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use("/api/users", usersRouter);
 app.use("/api/items", itemsRouter);
 app.use("/api/categories", categoriesRouter);
-app.use((req,res,next)=>{
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Credentials: true")
-  next();
-});
 
-
-app.post(`/api/login/:username`, (req, res) => {
-  console.log(req.body)
-  let userUsername = req.params.username;
-  let user = req.body;
-  console.log('hello', user.username)
-  if (user.username !== userUsername) {
-    console.log('hello2', user.username)
-    res.redirect("/register");
-  }
+app.post(`/api/login`, (req, res) => {
+  let ={username,password,id,status_id, name, item_id}=req.body
   return new User()
-    .where({ username: userUsername })
-    .fetch({
-      columns: ["username", "password"]
-    })
-    .then(data => {
-      console.log('hello3', data)
-      if (!data) {
-        res.status(404).json({ message: `Username or password incorrect` })
-      } else {
-        const user = data.toJSON();
-        console.log(user)
-        
-        res.send(user)
-      }
-    })
+  .where({ username: username })
+  .fetch({
+    columns: ["username", "password","id", "status_id","name", "item_id"]
+  })
+  .then(data => {
+    if (!data) {
+      return res.status(401).json({ message: `Username or password incorrect` })
+    } else {
+      const user = data.toJSON();
+      return res.send(user)
+    }
+  })
 })
 
-
-
+// app.get("/", (req, res) => {
+//   console.log("smoke test");
+//   res.send("smoke test");
+//});
 
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);

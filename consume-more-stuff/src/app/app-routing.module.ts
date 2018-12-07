@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { HomeComponent } from './pages/home/home.component';
 
-import { HeaderComponent } from '../app/component/header/header.component';
-import { ItemComponent } from './pages/item/item.component';
+import { ItemComponent } from './pages/item/item.component'; 
 import { AutoComponent } from './pages/auto/auto.component';
 import { ClothingComponent } from './pages/clothing/clothing.component';
 import { ElectronicComponent } from './pages/electronics/electronic.component';
@@ -18,7 +17,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'items', component: AllItemComponent},
   { path: 'item/:id', component: ItemComponent},
-  { path: 'header', component: HeaderComponent},
   { path: 'error', component: ErrorComponent},
   { path: 'auto', component: AutoComponent},
   { path: 'clothing', component: ClothingComponent},

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../../app/services/backend.service'
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { SessionService } from '../../services/session.service'
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,9 @@ export class HeaderComponent implements OnInit {
   item: Object[] = [];
   search: string;
   filter: Object[] = [];
-  isLoggedIn: boolean = true;
+  isLoggedIn: boolean = false;
   loginPressed: boolean = false;
+  
   username: string;
   password: string;
 
@@ -22,6 +24,7 @@ export class HeaderComponent implements OnInit {
     private backend: BackendService,
     private router: Router,
     private auth: AuthService,
+    private session: SessionService,
   ) { }
 
   ngOnInit() {
@@ -35,27 +38,25 @@ export class HeaderComponent implements OnInit {
   userLogin() {
     return this.backend.login(this.username, this.password)
       .then((resp) => {
-        console.log(resp)
-        const userData = resp
+        return this.auth.login(resp, this.username, this.password)
       })
-
-
-
-    // if (username === response.username && password === response.password){
-    //   return this.auth.login(response)
-    //  } 
-    //  })
+      .then(() => {
+        this.isLoggedIn = true;
+        this.username = null;
+        this.password = null;
+        return this.router.navigate(['**']);
+      })
   }
 
-
-
-
   itemSearch() {
-    if (this.search.toLowerCase)
-      this.filter = this.backend.items.filter((element) => {
-        console.log(element)
-        //  return element.includes(this.search)
-      })
+    return this.backend.searchForItem(this.search)
+  }
+   
+  logout(){
+     this.session.clearSession()
+     this.isLoggedIn = false;
+     this.loginPressed = false;
+     return this.router.navigate([''])
   }
 
 }
