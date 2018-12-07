@@ -16,6 +16,7 @@ import { ServiceComponent } from './pages/services-cat/service.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AllItemComponent } from './pages/allItems/allitems.component';
 import { ErrorComponent } from './pages/error/error.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { ErrorComponent } from './pages/error/error.component';
     ServiceComponent,
     DashboardComponent,
     AllItemComponent,
-    ErrorComponent
+    ErrorComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
