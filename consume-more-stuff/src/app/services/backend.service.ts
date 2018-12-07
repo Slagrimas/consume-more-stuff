@@ -1,69 +1,69 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 @Injectable({
-    providedIn: 'root'
+    providedIn: "root"
 })
 
 export class BackendService {
-    baseUrl: string = "https://localhost:8989";
+    baseUrl: string = 'http://localhost:4200/'
     item: any[] = [];
     items: any
     obj: any;
-    id: any;
-    
+    id: number;
+    user: {
+        id: number,
+        username: string,
+        password: string,
+        name: string,
+        email: string,
+        user_status: number,
+        item_id: null
+    } = {
+            id: null,
+            username: '',
+            password: '',
+            name: '',
+            email: '',
+            user_status: null,
+            item_id: null,
+        };
     constructor(private http: HttpClient) { }
 
-    getAllUsers() {
-        // console.log(this.allUsers)
-        const url = this.baseUrl + '/users';
-        return this.http.get(url).toPromise();
-    }
-
     getUser(id: number) {
-        // console.log(this.users)
-        const url = this.baseUrl + '/users/' + id;
+        const url = this.baseUrl + "/users/" + id;
         return this.http.get(url).toPromise();
     }
 
     getAllCategories() {
-        // console.log('this.allContacts in backend.service called\n', this.allContacts)
-        const url = this.baseUrl + '/categories';
+        const url = this.baseUrl + "api/categories";
         return this.http.get(url).toPromise();
     }
-
+    //can talk to database
     getAllItems() {
-        // console.log(this.allUsers)
-        const url = this.baseUrl + '/items';
+        const url = this.baseUrl + 'api/items';
         return this.http.get(url).toPromise();
     }
-
+    //can talk to database
     getItem(id: number) {
-        // console.log(this.users)
-        const url = this.baseUrl + '/items' + id;
-        return this.http.get(url).toPromise();
+        const ItemUrl = this.baseUrl + 'api/items/' + `?id=${id}`
+        return this.http.get(ItemUrl).toPromise()
     }
 
     createItem(items) {
-        console.log('items', items)
         this.item.push(items);
     }
 
     createNewItem(obj) {
-        const url = this.baseUrl + '/new';
-        console.log('createNewContact obj from backend.service', obj)
-        return this.http.post(url, obj)
-            .subscribe(res => {
-                console.log('added to DB')
-            });
+        const url = this.baseUrl + "/new";
+        return this.http.post(url, obj).subscribe(res => {
+            console.log("added to DB");
+        });
     }
 
-    login(user) {
-        return Promise.resolve({
-            id: user.id,
-            username: user.username
-        });
+    login(username, password) {
+        const userUrl = this.baseUrl + `api/login`;
+        return this.http.post(userUrl, {username:username, password:password}).toPromise()
     }
 
     logout() {
@@ -73,4 +73,10 @@ export class BackendService {
     register() {
         return Promise.resolve({});
     }
-} 
+
+    searchForItem(param) {
+        const itemFetch = this.baseUrl + `api/item/${param}`;
+        return this.http.post(itemFetch, '{title:title}').toPromise
+
+    }
+}

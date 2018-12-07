@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core'
+import { BackendService } from '../services/backend.service';
+import { AuthService } from '../services/auth.service';
 
 @Injectable({
     providedIn: 'root'
 })
-export class SessionServices {
+export class SessionService {
     user: {
         id: number,
         username: string,
@@ -26,7 +28,6 @@ export class SessionServices {
         this.user.id = user.id;
         this.user.username = user.username;
         this.user.isLoggedIn = true;
-
         localStorage.setItem('user', JSON.stringify(this.user))
     }
 
