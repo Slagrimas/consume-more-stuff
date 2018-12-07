@@ -72,7 +72,6 @@ export class BackendService {
 
     searchForItem(param) {
         const itemFetch = this.baseUrl + `api/items/${param}`;
-        return this.http.post(itemFetch, '{title:title}').toPromise();
-
+        return this.http.get(itemFetch).toPromise()
     }
 }

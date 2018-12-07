@@ -16,7 +16,7 @@ const bodyParser = require("body-parser");
 
 // const saltRounds = 12;
 // app.use(express.static('public'));
-
+app.use(bodyParser.json({extended: true}));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -53,20 +53,19 @@ app.use("/api/users", usersRouter);
 app.use("/api/items", itemsRouter);
 app.use("/api/categories", categoriesRouter);
 
-app.post(`/api/login/:username`, (req, res) => {
-  let userUsername = req.params.username;
-  
+app.post(`/api/login`, (req, res) => {
+  let ={username,password,id,status_id, name, item_id}=req.body
   return new User()
-  .where({ username: userUsername })
+  .where({ username: username })
   .fetch({
-    columns: ["username", "password"]
+    columns: ["username", "password","id", "status_id","name", "item_id"]
   })
   .then(data => {
     if (!data) {
-      res.status(404).json({ message: `Username or password incorrect` })
+      return res.status(401).json({ message: `Username or password incorrect` })
     } else {
       const user = data.toJSON();
-      res.send(user)
+      return res.send(user)
     }
   })
 })

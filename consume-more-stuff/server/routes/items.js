@@ -61,6 +61,21 @@ router.post("/", (req, res) => {
     });
 });
 
+router.get("/:item", (req, res) => {
+  let {item} =req.params
+   return new Item({title:item})
+  .fetch({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
+  .then((item)=>{
+    const itemRes = item.serialize()
+    return res.send(JSON.stringify(itemRes));
+  })
+  .catch((err)=>{
+    return res.send(404).json({message:`Item not found.`})
+  })
+})
+
 router.get("/:id", (req, res) => {
   const itemId = req.params.id;
 

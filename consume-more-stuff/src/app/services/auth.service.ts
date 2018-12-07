@@ -13,8 +13,6 @@ export class AuthService {
     ) { }
 
     login(data, username,password) {
-        console.log('auth',data)
-
         if (data.username === username && data.password === password){
              return this.session.setSession(data.username)
         }else{
