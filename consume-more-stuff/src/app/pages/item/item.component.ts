@@ -10,7 +10,6 @@ export class ItemComponent implements OnInit {
   item: any = [];
 
   constructor(private backend: BackendService, private route: ActivatedRoute) {
-    console.log(this.route.snapshot.params["id"]);
     const id = this.route.snapshot.params["id"];
 
     this.backend
