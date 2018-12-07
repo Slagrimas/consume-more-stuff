@@ -2,8 +2,8 @@
 
     <div class="auto-container">
         <div *ngFor="let aut of home.autoArr" class="auto">
-            <p class="title">{{ aut.title }}</p>
-            <p class="cat">Category: {{ aut.category_id.type }}</p> <br>
+            <p class="title"> Top 5 Items In {{ aut.category_id.type}}</p>
+            <p class="cat">Category: {{ aut.title }}</p> <br>
             description: {{aut.description}}<br>
             dimensions: {{aut.dimensions}}<br>
             category: {{ aut.category_id.type }}<br>
@@ -18,8 +18,8 @@
 
     <div class="clothes-container">
         <div *ngFor="let clo of home.clothArr" class="clothes">
-            <p class="title">{{ clo.title }}</p>
-            <p class="cat">Category: {{ clo.category_id.type }}</p> <br>
+            <p class="title"> Top 5 Items In {{ clo.category_id.type }}</p>
+            <p class="cat">Category: {{ clo.title }}</p> <br>
             description: {{clo.description}}<br>
             dimensions: {{clo.dimensions}}<br>
             category: {{ clo.category_id.type }}<br>
