@@ -14,7 +14,11 @@ export class ServiceComponent implements OnInit {
         .then((data) => {
             this.service = data;
         })
-        .catch((err) => { console.log(err) })
+        .catch((err) => {
+            alert('error has occured')
+            window.location.href = '/error'
+             console.log('failure', err)
+         })
      }
 
 

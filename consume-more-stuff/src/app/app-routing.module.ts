@@ -11,6 +11,7 @@ import { ElectronicComponent } from './pages/electronics/electronic.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
 import { AllItemComponent } from './pages/allItems/allitems.component';
+import { ErrorComponent } from './pages/error/error.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'items', component: AllItemComponent},
   { path: 'item/:id', component: ItemComponent},
   { path: 'header', component: HeaderComponent},
+  { path: 'error', component: ErrorComponent},
   { path: 'auto', component: AutoComponent},
   { path: 'clothing', component: ClothingComponent},
   { path: 'electronics', component: ElectronicComponent},

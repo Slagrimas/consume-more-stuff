@@ -19,9 +19,11 @@ export class HomeComponent implements OnInit {
         console.log('this is data', data)
         this.home = data
       })
-      .catch(err => {
-        console.log('this is error', err)
-      })
+      .catch((err) => {
+        alert('error has occured')
+        window.location.href = '/error'
+         console.log('failure', err)
+     })
 
   }
 
