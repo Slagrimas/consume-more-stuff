@@ -14,6 +14,7 @@ import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AllItemComponent } from './pages/allItems/allitems.component';
+import { RegisterComponent } from './pages/register/register.component';
 import { ErrorComponent } from './pages/error/error.component';
 import { HeaderComponent } from './component/header/header.component';
 
@@ -30,6 +31,7 @@ import { HeaderComponent } from './component/header/header.component';
     ServiceComponent,
     DashboardComponent,
     AllItemComponent,
+    RegisterComponent,
     ErrorComponent
   ],
   imports: [

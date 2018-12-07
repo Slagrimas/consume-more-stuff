@@ -69,12 +69,7 @@ app.post(`/api/login`, (req, res) => {
       return res.send(user)
     }
   })
-})
-
-// app.get("/", (req, res) => {
-//   console.log("smoke test");
-//   res.send("smoke test");
-//});
+});
 
 app.listen(PORT, () => {
   console.log(`Server listening on PORT ${PORT}`);
