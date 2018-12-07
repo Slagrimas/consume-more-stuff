@@ -12,39 +12,45 @@ import { AuthService } from '../../services/auth.service';
 })
 
 export class HeaderComponent implements OnInit {
-item: Object[]=[];
-search:string;
-filter: Object[]=[];
-isLoggedIn: boolean = false;
-loginPressed:boolean=false;
-username:string;
-password:string;
+  item: Object[] = [];
+  search: string;
+  filter: Object[] = [];
+  isLoggedIn: boolean = false;
+  loginPressed: boolean = false;
+  
+  username: string;
+  password: string;
 
   constructor(
     private backend: BackendService,
     private router: Router,
     private auth: AuthService,
-  ){}
+  ) { }
 
-   ngOnInit(){
+  ngOnInit() {
 
-   }
+  }
 
-   userLoginButtonPressed(){
-     return this.loginPressed=true;
-   }
+  userLoginButtonPressed() {
+    return this.loginPressed = true;
+  }
 
-   userLogin(username, password){
-     return this.backend.login(this.username, this.password)
-     .then((resp)=>{
-       return this.auth.login(resp,this.username, this.password)
+  userLogin() {
+    console.log('userlogin', this.username, this.password)
+    return this.backend.login(this.username, this.password)
+      .then((resp) => {
+        console.log(resp)
+        return this.auth.login(resp, this.username, this.password)
       })
-      .then(()=>{
+      .then(() => {
         this.isLoggedIn = true;
         this.username = null;
         this.password = null;
-        return this.router.navigate(['**'],);
+        return this.router.navigate(['**']);
       })
-    }
+  }
 
+  itemSearch() {
+    return this.backend.searchForItem(this.search)
+  }
 }
