@@ -1,30 +1,28 @@
-import { Injectable } from '@angular/core';
-import { BackendService } from './backend.service';
-import { SessionService } from './session.service';
+import { Injectable } from "@angular/core";
+import { BackendService } from "./backend.service";
+import { SessionService } from "./session.service";
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: "root"
 })
 export class AuthService {
+  constructor(
+    private backend: BackendService,
+    private session: SessionService
+  ) {}
 
-    constructor(
-        private backend: BackendService,
-        private session: SessionService
-    ) { }
+  login(user) {
+    return this.session.setSession(user);
+  }
 
-    login(user) {
-                return this.session.setSession(user);
-    }
+  logout() {
+    return this.backend.logout().then(() => {
+      return this.session.clearSession();
+    });
+  }
 
-    logout() {
-        return this.backend.logout()
-            .then(() => {
-                return this.session.clearSession();
-            })
-    }
-
-    register() {
-        return this.backend.register()
-    }
-
+  // register() {
+  //     return this.backend.register()
+  // }
 }
+

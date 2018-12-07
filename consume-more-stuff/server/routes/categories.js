@@ -6,13 +6,17 @@ const Item = require("../db/Models/Item");
 router.get("/", (req, res) => {
   return Category.fetchAll()
     .then(cats => {
-      res.json(cats);
+      return res.json(cats);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      return res.status(500).json({ message: err.message, code: err.code });
+    });
 });
 
 router.get("/home", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
+  return Item.fetchAll({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
     .then(items => {
       const itemsObjs = items.toJSON();
       let autoArr = [];
@@ -35,19 +39,22 @@ router.get("/home", (req, res) => {
         } else if (catId.id === 5 && servArr.length <= 5) {
           servArr.push(element);
         } else {
-          return "error has occurred";
+          return res
+            .status(500)
+            .json({ status: ERROR, message: "Unable to obtain data" });
         }
       });
       return res.send({ autoArr, clothArr, elecArr, genArr, servArr });
     })
     .catch(err => {
-      console.error(err);
-      return res.status(400).send(`An error occurred`);
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
 router.get("/automotive", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
+  return Item.fetchAll({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
     .then(items => {
       const results = items.toJSON();
       const automotive = results.filter(element => {
@@ -57,13 +64,14 @@ router.get("/automotive", (req, res) => {
       return res.send(automotive);
     })
     .catch(err => {
-      console.error(err);
-      return res.status(400).send(`An error has occurred`);
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
 router.get("/clothing", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
+  return Item.fetchAll({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
     .then(items => {
       const results = items.toJSON();
       const clothing = results.filter(element => {
@@ -73,13 +81,14 @@ router.get("/clothing", (req, res) => {
       return res.send(clothing);
     })
     .catch(err => {
-      console.error(err);
-      return res.status(400).send(`An error has occurred`);
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
 router.get("/electronics", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
+  return Item.fetchAll({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
     .then(items => {
       const results = items.toJSON();
       const electronics = results.filter(element => {
@@ -89,13 +98,14 @@ router.get("/electronics", (req, res) => {
       return res.send(electronics);
     })
     .catch(err => {
-      console.error(err);
-      return res.status(400).send(`An error has occurred`);
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
 router.get("/general", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
+  return Item.fetchAll({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
     .then(items => {
       const results = items.toJSON();
       const general = results.filter(element => {
@@ -105,13 +115,14 @@ router.get("/general", (req, res) => {
       return res.send(general);
     })
     .catch(err => {
-      console.error(err);
-      return res.status(400).send(`An error has occurred`);
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
 router.get("/services", (req, res) => {
-  return Item.fetchAll({ withRelated: ["category_id", "condition_id", "itemStatus_id"] })
+  return Item.fetchAll({
+    withRelated: ["category_id", "condition_id", "itemStatus_id"]
+  })
     .then(items => {
       const results = items.toJSON();
       const services = results.filter(element => {
@@ -121,8 +132,7 @@ router.get("/services", (req, res) => {
       return res.send(services);
     })
     .catch(err => {
-      console.error(err);
-      return res.status(400).send(`An error has occurred`);
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 

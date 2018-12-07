@@ -11,6 +11,7 @@ import { ElectronicComponent } from './pages/electronics/electronic.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
 import { AllItemComponent } from './pages/allItems/allitems.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 const routes: Routes = [
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'electronics', component: ElectronicComponent},
   { path: 'general', component: GeneralComponent},
   { path: 'service', component: ServiceComponent},
+  { path: 'register', component: RegisterComponent},
 
   { path: '**', redirectTo: '', pathMatch: 'full'}
 ];

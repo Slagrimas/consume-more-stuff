@@ -15,6 +15,7 @@ import { GeneralComponent } from './pages/general/general.component';
 import { ServiceComponent } from './pages/services-cat/service.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { AllItemComponent } from './pages/allItems/allitems.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AllItemComponent } from './pages/allItems/allitems.component';
     GeneralComponent,
     ServiceComponent,
     DashboardComponent,
-    AllItemComponent
+    AllItemComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

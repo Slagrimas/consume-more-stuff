@@ -10,8 +10,7 @@ router.get("/", (req, res) => {
       return res.json(items);
     })
     .catch(err => {
-      console.log("err in getting items", err);
-      return res.status(400).send("An error has ocurred");
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
@@ -32,8 +31,10 @@ router.post("/", (req, res) => {
   const parsedCond = parseInt(condition_id);
   const parsedStat = parseInt(status_id);
 
-  if (title.length <= 3 || description.length <= 10) {
-    return res.send(`Please enter valid information`);
+  if (title.length <= 3) {
+    return res.json({ status: ERROR, message: "Invalid title" });
+  } else if (description.length <= 10) {
+    return res.json({ status: ERROR, message: "Invalid description" });
   }
   return new Item({
     price,
@@ -56,7 +57,7 @@ router.post("/", (req, res) => {
       return res.json(item);
     })
     .catch(err => {
-      return res.status(400).json({ message: err.message, code: err.code });
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
 
@@ -80,12 +81,14 @@ router.get("/:id", (req, res) => {
     })
     .then(item => {
       if (!item) {
-        res.status(404).json({ message: `Item #${itemId} not found.` });
+        res.status(500).json({ message: `Item #${itemId} not found.` });
       } else {
         return res.json(item);
       }
     })
-    .catch(err => console.err(err));
+    .catch(err => {
+      return res.status(500).json({ message: err.message, code: err.code });
+    });
 });
 
 module.exports = router;

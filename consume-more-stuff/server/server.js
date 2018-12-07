@@ -18,7 +18,7 @@ const bodyParser = require("body-parser");
 // const saltRounds = 12;
 // app.use(express.static('public'));
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json({ extended: true }));
 
 // app.use(session({
 //   store: new redis({
