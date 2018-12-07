@@ -15,7 +15,6 @@ export class AutoComponent implements OnInit {
         this.backend.getAllAuto()
             .then((data) => {
                 this.result = data;
-                console.log('succesful')
             })
             .catch((err) => {
                alert('error has occured')

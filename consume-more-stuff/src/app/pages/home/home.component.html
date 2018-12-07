@@ -1,68 +1,70 @@
-<div class="auto-container">
-    <div *ngFor="let aut of home.autoArr" class="auto">
-        <p class="title">{{ aut.title }}</p>
-        <p class="cat">Category: {{ aut.category_id.type }}</p> <br>
-        description: {{aut.description}}<br>
-        dimensions: {{aut.dimensions}}<br>
-        category: {{ aut.category_id.type }}<br>
-        manufacturer: {{aut.manufacturer}}<br>
-        status id: {{aut.status_id}}<br>
-        price: {{aut.price}}<br>
-        notes: {{aut.notes}}<br>
-        published at: {{aut.published_at}}<br>
-        last updated at: {{aut.updated_at}}<br>
-    </div>
-</div>
+<div class="home">
 
-<div class="clothes-container">
-    <div *ngFor="let clo of home.clothArr" class="clothes">
-        <p class="title">{{ clo.title }}</p>
-        <p class="cat">Category: {{ clo.category_id.type }}</p> <br>
-        description: {{clo.description}}<br>
-        dimensions: {{clo.dimensions}}<br>
-        category: {{ clo.category_id.type }}<br>
-        manufacturer: {{clo.manufacturer}}<br>
-        status id: {{clo.status_id}}<br>
-        price: {{clo.price}}<br>
-        notes: {{clo.notes}}<br>
-        published at: {{clo.published_at}}<br>
-        last updated at: {{clo.updated_at}}<br>
+    <div class="auto-container">
+        <div *ngFor="let aut of home.autoArr" class="auto">
+            <p class="title">{{ aut.title }}</p>
+            <p class="cat">Category: {{ aut.category_id.type }}</p> <br>
+            description: {{aut.description}}<br>
+            dimensions: {{aut.dimensions}}<br>
+            category: {{ aut.category_id.type }}<br>
+            manufacturer: {{aut.manufacturer}}<br>
+            status id: {{aut.status_id}}<br>
+            price: {{aut.price}}<br>
+            notes: {{aut.notes}}<br>
+            published at: {{aut.published_at}}<br>
+            last updated at: {{aut.updated_at}}<br>
+        </div>
     </div>
-</div>
 
-<div class="electronics-container">
-    <div *ngFor="let ele of home.elecArr" class="elec">
-        <p class="title">{{ ele.title }}</p>
-        <p class="cat">Category: {{ ele.category_id.type }}</p> <br>
-        description: {{ele.description}}<br>
-        dimensions: {{ele.dimensions}}<br>
-        category: {{ ele.category_id.type }}<br>
-        manufacturer: {{ele.manufacturer}}<br>
-        status id: {{ele.status_id}}<br>
-        price: {{ele.price}}<br>
-        notes: {{ele.notes}}<br>
-        published at: {{ele.published_at}}<br>
-        last updated at: {{ele.updated_at}}<br>
+    <div class="clothes-container">
+        <div *ngFor="let clo of home.clothArr" class="clothes">
+            <p class="title">{{ clo.title }}</p>
+            <p class="cat">Category: {{ clo.category_id.type }}</p> <br>
+            description: {{clo.description}}<br>
+            dimensions: {{clo.dimensions}}<br>
+            category: {{ clo.category_id.type }}<br>
+            manufacturer: {{clo.manufacturer}}<br>
+            status id: {{clo.status_id}}<br>
+            price: {{clo.price}}<br>
+            notes: {{clo.notes}}<br>
+            published at: {{clo.published_at}}<br>
+            last updated at: {{clo.updated_at}}<br>
+        </div>
     </div>
-</div>
 
-<div class="general-container">
-    <div *ngFor="let gen of home.genArr" class="gen">
-        <p class="title">{{ gen.title }}</p>
-        <p class="cat">Category: {{ gen.category_id.type }}</p> <br>
-        description: {{gen.description}}<br>
-        dimensions: {{gen.dimensions}}<br>
-        category: {{ gen.category_id.type }}<br>
-        manufacturer: {{gen.manufacturer}}<br>
-        status id: {{gen.status_id}}<br>
-        price: {{gen.price}}<br>
-        notes: {{gen.notes}}<br>
-        published at: {{gen.published_at}}<br>
-        last updated at: {{gen.updated_at}}<br>
+    <div class="electronics-container">
+        <div *ngFor="let ele of home.elecArr" class="elec">
+            <p class="title">{{ ele.title }}</p>
+            <p class="cat">Category: {{ ele.category_id.type }}</p> <br>
+            description: {{ele.description}}<br>
+            dimensions: {{ele.dimensions}}<br>
+            category: {{ ele.category_id.type }}<br>
+            manufacturer: {{ele.manufacturer}}<br>
+            status id: {{ele.status_id}}<br>
+            price: {{ele.price}}<br>
+            notes: {{ele.notes}}<br>
+            published at: {{ele.published_at}}<br>
+            last updated at: {{ele.updated_at}}<br>
+        </div>
     </div>
-</div>
 
-<div class="services-container">
+    <div class="general-container">
+        <div *ngFor="let gen of home.genArr" class="gen">
+            <p class="title">{{ gen.title }}</p>
+            <p class="cat">Category: {{ gen.category_id.type }}</p> <br>
+            description: {{gen.description}}<br>
+            dimensions: {{gen.dimensions}}<br>
+            category: {{ gen.category_id.type }}<br>
+            manufacturer: {{gen.manufacturer}}<br>
+            status id: {{gen.status_id}}<br>
+            price: {{gen.price}}<br>
+            notes: {{gen.notes}}<br>
+            published at: {{gen.published_at}}<br>
+            last updated at: {{gen.updated_at}}<br>
+        </div>
+    </div>
+
+    <div class="services-container">
         <div *ngFor="let ser of home.servArr" class="serv">
             <p class="title">{{ ser.title }}</p>
             <p class="cat">Category: {{ ser.category_id.type }}</p> <br>
@@ -77,5 +79,6 @@
             last updated at: {{ser.updated_at}}<br>
         </div>
     </div>
+</div>
 
 <!-- {{ allItems | json }} -->
