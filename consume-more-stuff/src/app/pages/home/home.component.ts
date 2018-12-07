@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from "../../services/backend.service";
-import { AuthService } from '../../services/auth.service';
-import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './home.component.html',
@@ -14,17 +12,8 @@ export class HomeComponent implements OnInit {
   allCategories: any;
   cards: any;
 
-  username: string;
-  password: string;
-  item: Object[] = [];
-  search: string;
-  filter: Object[] = [];
-  isLoggedIn: boolean = false;
-  loginPressed: boolean = false;
-  
 
-
-  constructor(private backend: BackendService, private auth: AuthService, private router: Router) {
+  constructor(private backend: BackendService) {
 
     this.backend.getAllHomeItems()
       .then((data) => {
@@ -38,18 +27,6 @@ export class HomeComponent implements OnInit {
 
   }
 
-  userLogin() {
-    return this.backend.login(this.username, this.password)
-      .then((resp) => {
-        return this.auth.login(resp, this.username, this.password)
-      })
-      .then(() => {
-        this.isLoggedIn = true;
-        this.username = null;
-        this.password = null;
-        return this.router.navigate(['**']);
-      })
-  }
 
   ngOnInit() {
 
