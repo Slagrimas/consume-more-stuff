@@ -1,3 +1,70 @@
 .home{
+    border-top: solid black;
     margin-left: 200px;
+}
+
+.title{
+    margin: 10px;
+}
+
+.aut{
+    display: inline;
+}
+
+.auto-cards{
+    border: solid black;
+    width: 25%;
+    padding: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.clo{
+    display: inline;
+}
+
+.clot-cards{
+    border: solid black;
+    width: 25%;
+    padding: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.ele{
+    display: inline;
+}
+
+.elec-cards{
+    border: solid black;
+    width: 25%;
+    padding: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+.gen{
+    display: inline;
+}
+
+.gen-cards{
+    border: solid black;
+    width: 25%;
+    padding: 5px;
+    display: inline-block;
+    margin: 10px;
+}
+
+.serv{
+    display: inline;
+}
+.services-container{
+    height: 295px;
+}
+.ser-cards{
+    border: solid black;
+    width: 25%;
+    padding: 5px;
+    display: inline-block;
+    margin: 10px;
+    height: 280px;
 }
