@@ -1,4 +1,67 @@
-<div class="home">
+<div class="allAuth">
+    <div class="authHome" *ngIf="isLoggedIn()">
+        <div class="Published">
+            <p class="title"> Published </p>
+        </div>
+        <div class="publish-container">
+            <div class="pub-cards">
+                Title: Ford F150 For Sale
+                description: Big and Blue<br>
+                dimensions: 4x4<br>
+                category: Auto<br>
+                manufacturer: Ford<br>
+                status: Used<br>
+                price: 3000 obo<br>
+                notes: 3in Rough Country Lift kit<br>
+                published at: Today<br>
+                last updated at: Today<br>
+            </div>
+        </div>
+
+
+        <div class="authHome" *ngIf="isLoggedIn()">
+            <div class="Pending">
+                <p class="title"> Pending </p>
+            </div>
+            <div class="pending-container">
+                <div class="pend-cards">
+                    Title: Yamaha r6
+                    description: Ninja Mobile<br>
+                    dimensions: 1x1<br>
+                    category: Auto<br>
+                    manufacturer: Yamaha<br>
+                    status: Like New<br>
+                    price: 1200 obo<br>
+                    notes: Fast and Fun<br>
+                    published at: 3 days ago<br>
+                    last updated at: a day ago<br>
+                </div>
+            </div>
+        </div>
+
+        <div class="authHome" *ngIf="isLoggedIn()">
+        </div>
+    </div>
+    <div class="Sold">
+        <p class="title"> Sold </p>
+    </div>
+    <div class="sold-container">
+        <div class="sold-cards">
+            Title: Apple Iphone 8+
+            description: Iphone in mint condition<br>
+            dimensions: 8+<br>
+            category: Electronics<br>
+            manufacturer: Apple<br>
+            status: Like New<br>
+            price: 800 no low balling<br>
+            notes: Bought and never used<br>
+            published at: a week ago<br>
+            last updated at: a day ago<br>
+        </div>
+    </div>
+</div>
+
+<div class="home" *ngIf="!isLoggedIn()">
 
     <div class="auto">
         <p class="title"> Top 5 Items In Auto </p>

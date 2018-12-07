@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from "../../services/backend.service";
+import { SessionService } from "../../services/session.service";
 
 @Component({
   templateUrl: './home.component.html',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
   cards: any;
 
 
-  constructor(private backend: BackendService) {
+  constructor(private backend: BackendService, private session: SessionService) {
 
     this.backend.getAllHomeItems()
       .then((data) => {
@@ -27,6 +28,9 @@ export class HomeComponent implements OnInit {
 
   }
 
+  isLoggedIn() {
+    return this.session.getIsLoggedIn();
+}
 
   ngOnInit() {
 
