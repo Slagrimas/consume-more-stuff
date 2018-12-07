@@ -5,17 +5,18 @@ const User = require("../db/Models/User");
 router.get("/", (req, res) => {
   return User.fetchAll()
     .then(users => {
-      res.json(users);
+      return res.json(users);
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      return res.status(500).json({ message: err.message, code: err.code });
+    });
 });
-
 
 router.get("/:id", (req, res) => {
   const userId = req.params.id;
 
   if (req.user.id !== parseInt(userId)) {
-    res.redirect("/login");
+    return res.redirect("/login");
   }
   return new User()
     .where({ id: userId })
@@ -25,13 +26,15 @@ router.get("/:id", (req, res) => {
     })
     .then(user => {
       if (!user) {
-        res.status(404).json({ message: `User ${userId} not found.` });
+        return res.status(404).json({ message: `User ${userId} not found.` });
       } else {
         const userObj = user.toJSON();
-        res.send(userObj);
+        return res.send(userObj);
       }
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+      return res.status(500).json({ message: err.message, code: err.code });
+    });
 });
 
 router.post("/", (req, res) => {
@@ -39,33 +42,29 @@ router.post("/", (req, res) => {
   status_id = 1;
 
   if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return res.send(
-      `You've entered an invalid email. Please enter the correct format, example: test@email.com`
-    );
+    return res.status(400).json({ message: err.message, code: err.code });
   } else if (name.length <= 2) {
-    return res.send(`Please enter a valid name of 3 characters or more.`);
+    return res.status(400).json({ message: err.message, code: err.code });
   } else if (password.length <= 5) {
-    return res.send(`Password must be at least 6 characters.`);
+    return res.status(400).json({ message: err.message, code: err.code });
   } else if (username.length <= 3) {
-    return res.send(`Username must be at least 4 characters.`);
+    return res.status(400).json({ message: err.message, code: err.code });
   }
 
   return new User({
-    name: name,
-    username: username,
-    email: email,
-    password: password,
-    status_id: status_id
+    name,
+    username,
+    email,
+    password,
+    status_id
   })
     .save()
     .then(user => {
-      console.log("this is a new user", user);
       return res.json(user);
     })
     .catch(err => {
-      return res.status(400).json({ message: err.message, code: err.code });
+      return res.status(500).json({ message: err.message, code: err.code });
     });
 });
-
 
 module.exports = router;
