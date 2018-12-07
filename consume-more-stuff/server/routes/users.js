@@ -42,13 +42,13 @@ router.post("/", (req, res) => {
   status_id = 1;
 
   if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
-    return res.status(400).json({ message: err.message, code: err.code });
+    return res.status(400).json({ status: Error, message: 'Invalid email format' });
   } else if (name.length <= 2) {
-    return res.status(400).json({ message: err.message, code: err.code });
+    return res.status(400).json({ status: Error, message: 'Invalid name format' });
   } else if (password.length <= 5) {
-    return res.status(400).json({ message: err.message, code: err.code });
+    return res.status(400).json({ status: Error, message: 'Invalid password format' });
   } else if (username.length <= 3) {
-    return res.status(400).json({ message: err.message, code: err.code });
+    return res.status(400).json({ status: Error, message: 'Invalid username format' });
   }
 
   return new User({
