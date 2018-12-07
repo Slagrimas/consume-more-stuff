@@ -3,10 +3,9 @@
     <div class="auto-container">
         <div *ngFor="let aut of home.autoArr" class="auto">
             <p class="title"> Top 5 Items In {{ aut.category_id.type}}</p>
-            <p class="cat">Category: {{ aut.title }}</p> <br>
+            Title: {{ aut.title }}
             description: {{aut.description}}<br>
             dimensions: {{aut.dimensions}}<br>
-            category: {{ aut.category_id.type }}<br>
             manufacturer: {{aut.manufacturer}}<br>
             status id: {{aut.status_id}}<br>
             price: {{aut.price}}<br>
@@ -19,10 +18,9 @@
     <div class="clothes-container">
         <div *ngFor="let clo of home.clothArr" class="clothes">
             <p class="title"> Top 5 Items In {{ clo.category_id.type }}</p>
-            <p class="cat">Category: {{ clo.title }}</p> <br>
+            Title: {{ clo.title }}
             description: {{clo.description}}<br>
             dimensions: {{clo.dimensions}}<br>
-            category: {{ clo.category_id.type }}<br>
             manufacturer: {{clo.manufacturer}}<br>
             status id: {{clo.status_id}}<br>
             price: {{clo.price}}<br>
@@ -34,11 +32,10 @@
 
     <div class="electronics-container">
         <div *ngFor="let ele of home.elecArr" class="elec">
-            <p class="title">{{ ele.title }}</p>
-            <p class="cat">Category: {{ ele.category_id.type }}</p> <br>
+            <p class="title"> Top 5 Items In {{ ele.category_id.type }}</p>
+            Title: {{ ele.title }}
             description: {{ele.description}}<br>
             dimensions: {{ele.dimensions}}<br>
-            category: {{ ele.category_id.type }}<br>
             manufacturer: {{ele.manufacturer}}<br>
             status id: {{ele.status_id}}<br>
             price: {{ele.price}}<br>
@@ -50,11 +47,10 @@
 
     <div class="general-container">
         <div *ngFor="let gen of home.genArr" class="gen">
-            <p class="title">{{ gen.title }}</p>
-            <p class="cat">Category: {{ gen.category_id.type }}</p> <br>
+            <p class="title">{{ gen.category_id.type }}</p>
+            Title: {{ gen.title }}
             description: {{gen.description}}<br>
             dimensions: {{gen.dimensions}}<br>
-            category: {{ gen.category_id.type }}<br>
             manufacturer: {{gen.manufacturer}}<br>
             status id: {{gen.status_id}}<br>
             price: {{gen.price}}<br>
@@ -66,8 +62,8 @@
 
     <div class="services-container">
         <div *ngFor="let ser of home.servArr" class="serv">
-            <p class="title">{{ ser.title }}</p>
-            <p class="cat">Category: {{ ser.category_id.type }}</p> <br>
+            <p class="title"> Top 5 Items In {{ ser.category_id.type }}</p>
+            Title: {{ ser.title }}
             description: {{ser.description}}<br>
             dimensions: {{ser.dimensions}}<br>
             category: {{ ser.category_id.type }}<br>
@@ -80,5 +76,3 @@
         </div>
     </div>
 </div>
-
-<!-- {{ allItems | json }} -->
