@@ -54,11 +54,11 @@ app.use("/api/items", itemsRouter);
 app.use("/api/categories", categoriesRouter);
 
 app.post(`/api/login`, (req, res) => {
-  let ={username,password,user_id,user_status, name, item_id}=req.body
+  let ={username,password,id,status_id, name, item_id}=req.body
   return new User()
   .where({ username: username })
   .fetch({
-    columns: ["username", "password","user_id", "user_status","name", "item_id"]
+    columns: ["username", "password","id", "status_id","name", "item_id"]
   })
   .then(data => {
     if (!data) {

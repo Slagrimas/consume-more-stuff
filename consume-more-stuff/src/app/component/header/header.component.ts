@@ -36,10 +36,8 @@ export class HeaderComponent implements OnInit {
   }
 
   userLogin() {
-    console.log('userlogin', this.username, this.password)
     return this.backend.login(this.username, this.password)
       .then((resp) => {
-        console.log(resp)
         return this.auth.login(resp, this.username, this.password)
       })
       .then(() => {
