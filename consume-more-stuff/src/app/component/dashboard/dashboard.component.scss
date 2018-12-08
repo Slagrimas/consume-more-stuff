@@ -4,8 +4,8 @@ router-link{
 
 .dashboard{
     width: 200px;
-    height: 1370px;
-    border-right: black solid;
-    border-top: black solid;
-    float: left;
+    background-color: lightgray;
+    height: 100%;
+    position: fixed;
+
 }

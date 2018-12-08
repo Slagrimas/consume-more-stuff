@@ -1,8 +1,12 @@
 div.header{
-  margin:10px;
-  display:flex;
+  justify-content: flex-end;
+  background-color: lightgray;
+  width: 100%;
+  display: flex;
   flex-flow: row wrap;
   padding: 0;
+  border-bottom: 1px solid black;
+
 }
 
 h2{
