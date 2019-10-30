@@ -55,7 +55,8 @@ export class BackendService {
     }
 
     createNewItem(obj) {
-        const url = this.baseUrl + "/new";
+        const url = this.baseUrl + "api/items";
+        console.log(obj)
         return this.http.post(url, obj).subscribe(res => {
             console.log("added to DB");
         });
