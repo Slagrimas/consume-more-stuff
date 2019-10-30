@@ -16,92 +16,94 @@ router.get("/", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  const {
-    price,
-    description,
-    manufacturer,
-    dimensions,
-    category_id,
-    condition_id,
-    notes,
-    status_id,
-    title
-  } = req.body;
-
-  const parsedCat = parseInt(category_id);
-  const parsedCond = parseInt(condition_id);
-  const parsedStat = parseInt(status_id);
-
-  if (title.length <= 3 || description.length <= 10) {
+  if (req.body.title.length <= 3 || req.body.description.length <= 10) {
     return res.send(`Please enter valid information`);
-  }
-  return new Item({
-    price,
-    description,
-    manufacturer,
-    dimensions,
-    category_id: parsedCat,
-    condition_id: parsedCond,
-    status_id: parsedStat,
-    notes,
-    title
-  })
-    .save()
-    .then(item => {
-      //console.log('items posting', item);
-      return item.refresh({
-        withRelated: ["user_id", "condition_id", "category_id", "itemStatus_id"]
-      });
-    })
-    .then(item => {
-      return res.json(item);
-    })
-    .catch(err => {
-      return res.status(400).json({ message: err.message, code: err.code });
-    });
-});
+  } else {
+    console.log('this is the req.body', req.body)
+    const {
+      price,
+      description,
+      manufacturer,
+      dimensions,
+      category_id,
+      condition_id,
+      notes,
+      status_id: status_id,
+      title
+    } = req.body;
 
+    const parsedCat = parseInt(category_id);
+    const parsedCond = parseInt(condition_id);
+    const parsedStat = parseInt(status_id);
+    const parsedPrice = parseInt(price);
+    console.log('route console.log', parsedCat);
+    return new Item({
+      price: parsedPrice,
+      description,
+      manufacturer,
+      dimensions,
+      category_id: parsedCat,
+      condition_id: parsedCond,
+      status_id: parsedStat,
+      notes,
+      title
+    })
+      .save()
+      .then(() => {
+        console.log('items posting');
+        return item.refresh({
+          withRelated: ["user_id", "condition_id", "category_id", "itemStatus_id"]
+        });
+      })
+      .then(item => {
+        console.log(res.json(item));
+      })
+      .catch(err => {
+        return res.status(400).json({ message: err.message, code: err.code });
+      });
+  }
+});
 router.get("/:item", (req, res) => {
-  let {item} =req.params
-   return new Item({title:item})
-  .fetch({
-    withRelated: ["category_id", "condition_id", "itemStatus_id"]
-  })
-  .then((item)=>{
-    const itemRes = item.serialize()
-    return res.send(JSON.stringify(itemRes));
-  })
-  .catch((err)=>{
-    return res.send(404).json({message:`Item not found.`})
-  })
+  let { item } = req.params
+  return new Item({ title: item })
+    .fetch({
+      withRelated: ["category_id", "condition_id", "itemStatus_id"]
+    })
+    .then((item) => {
+      const itemRes = item.serialize()
+      return res.send(JSON.stringify(itemRes));
+    })
+    .catch((err) => {
+      return res.send(404).json({ message: `Item not found.` })
+    })
 })
 
-router.get("/:id", (req, res) => {
-  const itemId = req.params.id;
+// router.get("/:id", (req, res) => {
+//   const itemId = req.params.id;
 
-  return new Item({ id: itemId })
-    .fetch({
-      columns: [
-        "category_id",
-        "price",
-        "description",
-        "manufacturer",
-        "condition_id",
-        "dimensions",
-        "notes",
-        "status_id",
-        "title"
-      ],
-      withRelated: ["category_id"]
-    })
-    .then(item => {
-      if (!item) {
-        res.status(404).json({ message: `Item #${itemId} not found.` });
-      } else {
-        return res.json(item);
-      }
-    })
-    .catch(err => console.err(err));
-});
+//   return new Item({ id: itemId })
+//     .fetch({
+//       columns: [
+//         "category_id",
+//         "price",
+//         "description",
+//         "manufacturer",
+//         "condition_id",
+//         "dimensions",
+//         "notes",
+//         "status_id",
+//         "title"
+//       ],
+//       withRelated: ["category_id"]
+//     })
+//     .then(item => {
+//       if (!item) {
+//         res.status(404).json({ message: `Item #${itemId} not found.` });
+//       } else {
+//         return res.json(item);
+//       }
+//     })
+//     .catch(err => console.err(err));
+// });
 
 module.exports = router;
